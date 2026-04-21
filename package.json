@@ -1,0 +1,8 @@
+{
+  "name": "mln122-doc-quyen-tu-ban",
+  "version": "1.0.0",
+  "description": "MLN122 - Học thuyết Lênin về Độc quyền Tư bản - Interactive Learning",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
