@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Thuyết Lênin – Độc Quyền Tư Bản | MLN122</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #818CF8;
+            --primary-bg: #EEF2FF;
+            --secondary: #EC4899;
+            --secondary-bg: #FDF2F8;
+            --accent: #F59E0B;
+            --accent-bg: #FFFBEB;
+            --bg: #F8FAFC;
+            --surface: #FFFFFF;
+            --text: #1E293B;
+            --muted: #64748B;
+            --success: #10B981;
+            --success-bg: #D1FAE5;
+            --danger: #EF4444;
+            --danger-bg: #FEE2E2;
+            --border: #E2E8F0;
+            --radius: 16px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+            --shadow: 0 8px 24px rgba(0,0,0,.08);
+            --shadow-lg: 0 20px 48px rgba(0,0,0,.1);
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+
+        /* ── HEADER ── */
+        .header {
+            background: linear-gradient(135deg, #3730A3 0%, var(--primary) 45%, var(--secondary) 100%);
+            color: white; padding: 3.5rem 1rem 2.5rem; text-align:center;
+            border-radius: 0 0 48px 48px;
+            box-shadow: 0 12px 40px rgba(79,70,229,.25);
+            margin-bottom: 2.5rem; position: relative; overflow:hidden;
+        }
+        .header::before {
+            content:''; position:absolute; inset:0;
+            background: repeating-linear-gradient(60deg,rgba(255,255,255,.04) 0px,rgba(255,255,255,.04) 1px,transparent 1px,transparent 28px);
+        }
+        .header-badge {
+            display:inline-block; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3);
+            padding:.3rem 1rem; border-radius:50px; font-size:.8rem; font-weight:600;
+            letter-spacing:1px; margin-bottom:1rem; position:relative;
+        }
+        .header h1 { font-family:'Quicksand',sans-serif; font-size:2.6rem; font-weight:700; margin-bottom:.8rem; position:relative; }
+        .header p { font-size:1.05rem; opacity:.88; max-width:680px; margin:0 auto; position:relative; }
+
+        /* ── TABS ── */
+        .nav-tabs {
+            display:flex; justify-content:center; gap:.75rem; flex-wrap:wrap;
+            padding:.75rem 1rem; background:var(--surface);
+            border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100;
+            box-shadow: var(--shadow-sm);
+        }
+        .tab-btn {
+            background:var(--bg); border:2px solid var(--border); padding:.7rem 1.4rem;
+            border-radius:50px; font-size:.95rem; font-weight:600; color:var(--muted);
+            cursor:pointer; transition:all .25s; display:flex; align-items:center; gap:7px;
+        }
+        .tab-btn:hover { border-color:var(--primary-light); color:var(--primary); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
+        .tab-btn.active { background:var(--primary); color:white; border-color:var(--primary); box-shadow:0 6px 18px rgba(79,70,229,.3); }
+
+        /* ── LAYOUT ── */
+        .container { max-width:1200px; margin:0 auto; padding:2rem 1rem 5rem; }
+        .section-view { display:none; animation:fadeIn .35s ease; }
+        .section-view.active { display:block; }
+        @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+        /* ── SECTION TITLE ── */
+        .sec-title { text-align:center; font-family:'Quicksand',sans-serif; font-size:2rem; font-weight:700; margin-bottom:.5rem; }
+        .sec-sub { text-align:center; color:var(--muted); margin-bottom:2.5rem; }
+
+        /* ── INFOGRAPHIC ── */
+        .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem; margin-bottom:2rem; }
+        .card {
+            background:var(--surface); border-radius:var(--radius); padding:2rem;
+            box-shadow:var(--shadow-sm); transition:.3s; position:relative; overflow:hidden;
+            border:1px solid var(--border);
+        }
+        .card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+        .card-accent { position:absolute; top:0; left:0; width:5px; height:100%; border-radius:var(--radius) 0 0 var(--radius); }
+        .card-icon {
+            font-size:1.6rem; margin-bottom:1.2rem; width:56px; height:56px;
+            display:inline-flex; justify-content:center; align-items:center; border-radius:12px;
+        }
+        .card h3 { font-size:1.25rem; font-family:'Quicksand',sans-serif; font-weight:700; margin-bottom:.75rem; }
+        .card p { color:var(--muted); font-size:.93rem; margin-bottom:.5rem; }
+        .card ul { padding-left:1.3rem; color:var(--muted); font-size:.9rem; }
+        .card ul li { margin-bottom:.4rem; }
+        .badge-chip {
+            display:inline-block; padding:.25rem .8rem; border-radius:50px;
+            font-size:.8rem; font-weight:700; margin-bottom:.9rem;
+        }
+        .char-number {
+            position:absolute; top:1.2rem; right:1.5rem;
+            font-size:3rem; font-weight:800; opacity:.06; font-family:'Quicksand',sans-serif;
+        }
+
+        /* Colors per card */
+        .c-blue  { --cc:#3B82F6; --cb:#EFF6FF; } .c-blue .card-accent { background:#3B82F6; }
+        .c-blue .card-icon { background:#DBEAFE; color:#1D4ED8; } .c-blue .badge-chip { background:#DBEAFE; color:#1D4ED8; }
+        .c-violet{ --cc:#8B5CF6; --cb:#F5F3FF; } .c-violet .card-accent { background:#8B5CF6; }
+        .c-violet .card-icon { background:#EDE9FE; color:#6D28D9; } .c-violet .badge-chip { background:#EDE9FE; color:#6D28D9; }
+        .c-green { --cc:#10B981; --cb:#ECFDF5; } .c-green .card-accent { background:#10B981; }
+        .c-green .card-icon { background:#D1FAE5; color:#047857; } .c-green .badge-chip { background:#D1FAE5; color:#047857; }
+        .c-amber { --cc:#F59E0B; --cb:#FFFBEB; } .c-amber .card-accent { background:#F59E0B; }
+        .c-amber .card-icon { background:#FEF3C7; color:#B45309; } .c-amber .badge-chip { background:#FEF3C7; color:#B45309; }
+        .c-red   { --cc:#EF4444; --cb:#FEF2F2; } .c-red .card-accent { background:#EF4444; }
+        .c-red .card-icon { background:#FEE2E2; color:#B91C1C; } .c-red .badge-chip { background:#FEE2E2; color:#B91C1C; }
+
+        /* Case Study card */
+        .case-card {
+            background:var(--surface); border-radius:var(--radius); padding:2rem;
+            border:2px solid var(--secondary); box-shadow:var(--shadow-sm);
+            display:flex; gap:2rem; flex-wrap:wrap; align-items:flex-start; margin-bottom:2rem;
+        }
+        .case-left { flex:1; min-width:260px; }
+        .case-right {
+            flex:1; min-width:260px; background:var(--secondary-bg);
+            border-radius:12px; padding:1.5rem;
+        }
+        .case-right h4 { color:#BE185D; font-size:1rem; font-weight:700; margin-bottom:.6rem; }
+
+        /* Summary box */
+        .summary-box {
+            background: linear-gradient(135deg, #3730A3, var(--primary));
+            border-radius:var(--radius); padding:2.5rem; color:white; margin-top:2rem;
+        }
+        .summary-box h3 { font-family:'Quicksand',sans-serif; font-size:1.5rem; margin-bottom:1rem; }
+        .summary-box ol { padding-left:1.5rem; }
+        .summary-box ol li { margin-bottom:.6rem; opacity:.9; }
+
+        /* ── GAME PANEL ── */
+        .game-panel {
+            background:var(--surface); border-radius:var(--radius); padding:2.5rem;
+            box-shadow:var(--shadow); max-width:800px; margin:0 auto; text-align:center;
+        }
+
+        /* Start overlay */
+        .start-overlay .icon-wrap {
+            width:80px; height:80px; border-radius:50%; display:inline-flex;
+            align-items:center; justify-content:center; font-size:2.2rem;
+            margin-bottom:1.2rem;
+        }
+        .start-overlay h2 { font-family:'Quicksand',sans-serif; font-size:1.8rem; margin-bottom:.75rem; }
+        .start-overlay p { color:var(--muted); max-width:500px; margin:0 auto 2rem; }
+
+        .btn-start {
+            background:var(--secondary); color:white; padding:.9rem 2.5rem;
+            font-size:1.05rem; font-weight:700; border:none; border-radius:50px;
+            cursor:pointer; transition:.3s; box-shadow:0 8px 20px rgba(236,72,153,.3);
+            display:inline-flex; align-items:center; gap:8px;
+        }
+        .btn-start:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(236,72,153,.4); }
+        .btn-start.primary { background:var(--primary); box-shadow:0 8px 20px rgba(79,70,229,.3); }
+        .btn-start.primary:hover { box-shadow:0 12px 28px rgba(79,70,229,.4); }
+        .btn-start.danger { background:var(--danger); box-shadow:0 8px 20px rgba(239,68,68,.3); }
+        .btn-start.danger:hover { box-shadow:0 12px 28px rgba(239,68,68,.4); }
+
+        /* Progress + score */
+        .g-header {
+            display:flex; justify-content:space-between; align-items:center;
+            margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:2px solid var(--bg);
+        }
+        .g-progress-wrap { flex:1; background:var(--bg); border-radius:99px; height:8px; margin:0 1rem; overflow:hidden; }
+        .g-progress-bar { height:100%; background:linear-gradient(90deg,var(--primary),var(--primary-light)); border-radius:99px; transition:width .4s; }
+        .g-badge { font-size:.85rem; font-weight:700; background:var(--primary-bg); color:var(--primary); padding:.35rem .9rem; border-radius:50px; }
+        .g-score { font-size:1.05rem; font-weight:700; color:var(--primary); }
+
+        .q-text { font-size:1.3rem; font-family:'Quicksand',sans-serif; font-weight:700; margin-bottom:1.8rem; color:var(--text); line-height:1.5; }
+        .options-grid { display:grid; gap:.75rem; }
+        .opt-btn {
+            background:var(--bg); border:2px solid var(--border); padding:.9rem 1.3rem;
+            border-radius:12px; font-size:1rem; color:var(--text); cursor:pointer;
+            transition:.2s; text-align:left; display:flex; align-items:center; gap:12px;
+            font-family:'Outfit',sans-serif; font-weight:500;
+        }
+        .opt-btn .opt-letter {
+            width:32px; height:32px; border-radius:8px; background:var(--border);
+            display:inline-flex; align-items:center; justify-content:center;
+            font-size:.85rem; font-weight:700; flex-shrink:0; transition:.2s;
+        }
+        .opt-btn:hover:not(:disabled) { background:var(--primary-bg); border-color:var(--primary-light); }
+        .opt-btn:hover:not(:disabled) .opt-letter { background:var(--primary); color:white; }
+        .opt-btn.correct { background:var(--success-bg); border-color:var(--success); color:#065F46; }
+        .opt-btn.correct .opt-letter { background:var(--success); color:white; }
+        .opt-btn.wrong { background:var(--danger-bg); border-color:var(--danger); color:#991B1B; }
+        .opt-btn.wrong .opt-letter { background:var(--danger); color:white; }
+
+        .feedback-box {
+            margin-top:1.2rem; padding:1rem 1.4rem; border-radius:12px;
+            font-size:.9rem; text-align:left; font-weight:500; display:none;
+        }
+        .feedback-box.show { display:block; animation:fadeIn .25s; }
+        .feedback-box.ok { background:var(--success-bg); color:#065F46; }
+        .feedback-box.no { background:var(--danger-bg); color:#991B1B; }
+        .btn-next {
+            margin-top:1.2rem; background:var(--primary); color:white; border:none;
+            padding:.75rem 2rem; border-radius:50px; font-size:1rem; font-weight:700;
+            cursor:pointer; transition:.2s; display:none;
+        }
+        .btn-next.show { display:inline-block; animation:fadeIn .3s; }
+        .btn-next:hover { opacity:.9; transform:translateY(-2px); }
+
+        /* Result */
+        .result-panel { text-align:center; }
+        .result-circle {
+            width:120px; height:120px; border-radius:50%; margin:0 auto 1.5rem;
+            display:flex; align-items:center; justify-content:center; flex-direction:column;
+            background:linear-gradient(135deg,var(--primary),var(--secondary));
+        }
+        .result-circle .score-num { font-size:2.2rem; font-weight:800; color:white; line-height:1; }
+        .result-circle .score-total { font-size:.9rem; color:rgba(255,255,255,.8); }
+        .result-panel h2 { font-family:'Quicksand',sans-serif; font-size:1.6rem; margin-bottom:.5rem; }
+        .result-panel p { color:var(--muted); margin-bottom:1.5rem; }
+        .result-grade {
+            display:inline-block; padding:.4rem 1.2rem; border-radius:50px;
+            font-size:1rem; font-weight:700; margin-bottom:1.5rem;
+        }
+
+        /* ── MATCHING GAME ── */
+        .match-wrap { max-width:960px; margin:0 auto; }
+        .match-instructions { color:var(--muted); margin-bottom:1.5rem; font-size:.95rem; }
+        .match-score-bar {
+            display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;
+            background:var(--bg); padding:.8rem 1.5rem; border-radius:12px;
+        }
+        .match-score-bar span { font-weight:700; color:var(--primary); }
+        .match-container { display:flex; gap:1.5rem; }
+        .match-col { flex:1; display:flex; flex-direction:column; gap:.75rem; }
+        .match-col-label { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:.3rem; }
+        .match-item {
+            background:var(--surface); border:2px solid var(--border); padding:1.1rem 1.3rem;
+            border-radius:12px; cursor:pointer; text-align:center; font-weight:600;
+            font-size:.92rem; transition:.2s; box-shadow:var(--shadow-sm);
+        }
+        .match-item:hover:not(.matched) { border-color:var(--primary); color:var(--primary); transform:translateY(-2px); }
+        .match-item.selected { background:var(--primary); color:white; border-color:var(--primary); transform:scale(1.03); }
+        .match-item.matched { background:var(--success-bg); color:#065F46; border-color:var(--success); opacity:.85; pointer-events:none; }
+        .match-item.wrong-anim { animation:shake .4s; background:var(--danger-bg); color:#991B1B; border-color:var(--danger); }
+        @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+        .match-win {
+            display:none; margin-top:2rem; text-align:center; padding:1.5rem;
+            background:var(--success-bg); border-radius:var(--radius);
+        }
+        .match-win h3 { color:#047857; font-size:1.4rem; font-family:'Quicksand',sans-serif; margin-bottom:1rem; }
+
+        /* ── TRUE FALSE ── */
+        .tf-wrap { max-width:700px; margin:0 auto; }
+        .timer-bar { height:10px; background:var(--bg); border-radius:99px; overflow:hidden; margin-bottom:1.2rem; }
+        .timer-fill { height:100%; background:linear-gradient(90deg,var(--danger),var(--secondary)); border-radius:99px; width:100%; transition:width 1s linear; }
+        .tf-stats { display:flex; justify-content:space-between; margin-bottom:1rem; font-weight:700; color:var(--muted); font-size:.95rem; }
+        .tf-card {
+            background:linear-gradient(135deg,#F8FAFC,#E2E8F0);
+            padding:3rem 2rem; border-radius:20px; margin-bottom:1.5rem;
+            border:1px solid var(--border); min-height:160px; display:flex; align-items:center; justify-content:center;
+        }
+        .tf-statement { font-size:1.5rem; font-family:'Quicksand',sans-serif; font-weight:700; color:var(--primary); text-align:center; }
+        .tf-actions { display:flex; justify-content:center; gap:2rem; }
+        .tf-btn {
+            width:90px; height:90px; border-radius:50%; border:none;
+            font-size:1.8rem; color:white; cursor:pointer; transition:.2s;
+            box-shadow:0 8px 20px rgba(0,0,0,.12); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+        }
+        .tf-btn span { font-size:.65rem; font-weight:700; letter-spacing:.5px; }
+        .tf-btn.true { background:var(--success); }
+        .tf-btn.false { background:var(--danger); }
+        .tf-btn:hover { transform:scale(1.12); box-shadow:0 12px 28px rgba(0,0,0,.18); }
+        .tf-btn:active { transform:scale(.96); }
+        .tf-feedback {
+            text-align:center; padding:.8rem 1.2rem; border-radius:12px; font-weight:700;
+            margin-top:.75rem; font-size:1rem; display:none;
+        }
+        .tf-feedback.show { display:block; animation:fadeIn .2s; }
+        .tf-feedback.ok { background:var(--success-bg); color:#047857; }
+        .tf-feedback.no { background:var(--danger-bg); color:#B91C1C; }
+
+        @media (max-width: 700px) {
+            .header h1 { font-size:1.8rem; }
+            .match-container { flex-direction:column; }
+            .nav-tabs { gap:.5rem; }
+            .tab-btn { padding:.6rem 1rem; font-size:.85rem; }
+            .game-panel { padding:1.5rem; }
+            .tf-statement { font-size:1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-badge">MLN122 · KTCT MÁC – LÊNIN</div>
+    <h1><i class="fas fa-landmark" style="margin-right:.5rem;opacity:.85;"></i>Bản Chất Độc Quyền Tư Bản</h1>
+    <p>Trung tâm học tập tương tác – Kiến thức Chương 4: Cạnh tranh và Độc quyền trong nền kinh tế thị trường. Biến lý luận Lênin thành trải nghiệm cuốn hút.</p>
+</header>
+
+<nav class="nav-tabs">
+    <button class="tab-btn active" onclick="openTab('info',this)"><i class="fas fa-map"></i> Infographic</button>
+    <button class="tab-btn" onclick="openTab('game1',this)"><i class="fas fa-brain"></i> Trắc Nghiệm 20 Câu</button>
+    <button class="tab-btn" onclick="openTab('game2',this)"><i class="fas fa-link"></i> Nối Khái Niệm</button>
+    <button class="tab-btn" onclick="openTab('game3',this)"><i class="fas fa-bolt"></i> Đúng Sai Tốc Chiến</button>
+</nav>
+
+<div class="container">
+
+    <!-- ================= INFOGRAPHIC ================= -->
+    <div id="info" class="section-view active">
+        <h2 class="sec-title">5 Đặc Điểm Kinh Tế Cơ Bản Của Chủ Nghĩa Đế Quốc</h2>
+        <p class="sec-sub">Theo V.I. Lênin – <em>Chủ nghĩa đế quốc, giai đoạn tột cùng của chủ nghĩa tư bản</em></p>
+
+        <div class="info-grid">
+            <!-- Đặc điểm 1 -->
+            <div class="card c-blue">
+                <div class="card-accent"></div>
+                <span class="char-number">①</span>
+                <div class="card-icon"><i class="fas fa-industry"></i></div>
+                <span class="badge-chip">Đặc điểm 1</span>
+                <h3>Tập Trung Sản Xuất Và Độc Quyền</h3>
+                <p>Sức ép cạnh tranh khiến xí nghiệp nhỏ phá sản, sản xuất bị thâu tóm vào tay các tập đoàn khổng lồ, hình thành <strong>liên minh độc quyền</strong>:</p>
+                <ul>
+                    <li><strong>Cartel</strong>: Thỏa thuận giá, sản lượng – vẫn độc lập sản xuất & lưu thông.</li>
+                    <li><strong>Syndicate</strong>: Thống nhất mua–bán, mất tự do lưu thông.</li>
+                    <li><strong>Trust</strong>: Sáp nhập cả sản xuất lẫn tiêu thụ hoàn toàn.</li>
+                    <li><strong>Consortium</strong>: Đa ngành, quy mô lớn nhất, lệ thuộc tài chính vào một nhóm tư bản.</li>
+                </ul>
+            </div>
+
+            <!-- Đặc điểm 2 -->
+            <div class="card c-violet">
+                <div class="card-accent"></div>
+                <span class="char-number">②</span>
+                <div class="card-icon"><i class="fas fa-university"></i></div>
+                <span class="badge-chip">Đặc điểm 2</span>
+                <h3>Tư Bản Tài Chính Và Đầu Sỏ Tài Chính</h3>
+                <p>Độc quyền ngân hàng dung hợp với độc quyền công nghiệp → <strong>Tư bản tài chính</strong>. Nhóm <strong>đầu sỏ tài chính</strong> (tài phiệt) chi phối toàn bộ kinh tế–chính trị qua:</p>
+                <ul>
+                    <li><strong>Chế độ tham dự</strong>: Mua cổ phần khống chế "công ty mẹ" → chi phối dây chuyền "công ty con", "công ty cháu".</li>
+                    <li>Nắm chính phủ: "Hôm nay bộ trưởng, ngày mai chủ ngân hàng."</li>
+                </ul>
+            </div>
+
+            <!-- Đặc điểm 3 -->
+            <div class="card c-green">
+                <div class="card-accent"></div>
+                <span class="char-number">③</span>
+                <div class="card-icon"><i class="fas fa-ship"></i></div>
+                <span class="badge-chip">Đặc điểm 3</span>
+                <h3>Xuất Khẩu Tư Bản</h3>
+                <p>Khác với xuất khẩu hàng hóa thời kỳ trước, chủ nghĩa đế quốc <strong>xuất khẩu tư bản</strong> – đưa vốn đầu tư ra nước ngoài để bóc lột lao động và nguyên liệu rẻ:</p>
+                <ul>
+                    <li><strong>Đầu tư trực tiếp (FDI)</strong>: Xây xí nghiệp, thâu tóm doanh nghiệp nước ngoài.</li>
+                    <li><strong>Đầu tư gián tiếp</strong>: Cho vay, mua cổ phiếu, trái phiếu.</li>
+                </ul>
+            </div>
+
+            <!-- Đặc điểm 4 -->
+            <div class="card c-amber">
+                <div class="card-accent"></div>
+                <span class="char-number">④</span>
+                <div class="card-icon"><i class="fas fa-globe-asia"></i></div>
+                <span class="badge-chip">Đặc điểm 4</span>
+                <h3>Phân Chia Thế Giới Về Kinh Tế</h3>
+                <p>Các tập đoàn độc quyền cạnh tranh chiếm lĩnh thị trường thế giới, tất yếu dẫn đến <strong>ký kết các hiệp ước phân chia</strong> nhau về thị trường, nguồn nguyên liệu, lĩnh vực đầu tư.</p>
+                <p>→ Hình thành các liên minh độc quyền <em>quốc tế</em>: cartel, syndicate, trust quốc tế.</p>
+            </div>
+
+            <!-- Đặc điểm 5 -->
+            <div class="card c-red">
+                <div class="card-accent"></div>
+                <span class="char-number">⑤</span>
+                <div class="card-icon"><i class="fas fa-flag"></i></div>
+                <span class="badge-chip">Đặc điểm 5</span>
+                <h3>Phân Chia Lãnh Thổ Thế Giới</h3>
+                <p>Các cường quốc tư bản dùng <strong>sức mạnh chính trị và quân sự</strong> để tranh giành thuộc địa, phân chia lãnh thổ – bảo vệ lợi ích độc quyền:</p>
+                <ul>
+                    <li>Nguyên nhân gốc rễ của các cuộc chiến tranh thế giới.</li>
+                    <li>Sau CTTG II: Chuyển sang <em>chủ nghĩa thực dân mới</em> (viện trợ, nợ, quân sự).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Case Study + Tại sao độc quyền -->
+        <div class="case-card">
+            <div class="case-left">
+                <h3 style="font-family:'Quicksand',sans-serif; font-size:1.5rem; color:var(--secondary); margin-bottom:.75rem;">Tại Sao Doanh Nghiệp Khao Khát Trở Thành Độc Quyền?</h3>
+                <p style="color:var(--muted); margin-bottom:.8rem;"><strong>Bản chất:</strong> Cạnh tranh bào mòn lợi nhuận và mang nguy cơ phá sản. Nắm độc quyền là con đường để:</p>
+                <ol style="padding-left:1.4rem; color:var(--muted);">
+                    <li style="margin-bottom:.5rem;"><strong>Tối đa hóa lợi nhuận</strong>: Áp đặt <em>giá cả độc quyền cao</em> khi bán, <em>giá cả độc quyền thấp</em> khi mua nguyên liệu.</li>
+                    <li style="margin-bottom:.5rem;"><strong>Loại bỏ rủi ro cạnh tranh</strong>: Bóp nghẹt đối thủ, chiếm lĩnh thị trường tuyệt đối.</li>
+                </ol>
+            </div>
+            <div class="case-right">
+                <h4><i class="fas fa-search-plus" style="margin-right:6px;"></i>Case Study: Grab thâu tóm Uber ĐNA</h4>
+                <p style="font-size:.9rem; color:#7C3D66;">Sau cuộc chiến "đốt tiền" tranh khách, Grab mua lại Uber tại Đông Nam Á → <strong>tập trung sản xuất, hình thành độc quyền</strong>. Không còn đối thủ, Grab liên tục tăng chiết khấu tài xế và giá cước – thu <em>lợi nhuận độc quyền cao</em>. Đây là minh chứng sống cho quy luật Lênin: tự do cạnh tranh tất yếu đẻ ra độc quyền.</p>
+            </div>
+        </div>
+
+        <!-- Độc quyền Nhà nước tóm tắt -->
+        <div class="summary-box">
+            <h3><i class="fas fa-landmark" style="margin-right:8px;"></i>Độc Quyền Nhà Nước – 3 Đặc Trưng Kinh Tế Chủ Yếu</h3>
+            <ol>
+                <li><strong>Kết hợp nhân sự</strong>: Đại diện tổ chức độc quyền vào bộ máy nhà nước và ngược lại – "Hôm nay bộ trưởng, ngày mai chủ ngân hàng."</li>
+                <li><strong>Hình thành sở hữu nhà nước</strong>: Quốc hữu hóa, xây dựng DNNN, mua cổ phần để nắm lĩnh vực then chốt (điện, giao thông, viễn thông...).</li>
+                <li><strong>Điều tiết kinh tế</strong>: Nhà nước dùng ngân sách, thuế, tín dụng, DNNN, pháp luật điều tiết toàn bộ tái sản xuất xã hội phục vụ lợi ích tư bản độc quyền.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- ================= GAME 1: 20 QUIZ ================= -->
+    <div id="game1" class="section-view">
+        <div class="game-panel">
+            <!-- Intro -->
+            <div id="g1-intro" class="start-overlay">
+                <div class="icon-wrap" style="background:var(--primary-bg);color:var(--primary);"><i class="fas fa-brain"></i></div>
+                <h2>Trắc Nghiệm Tổng Hợp</h2>
+                <p>20 câu hỏi từ cơ bản đến nâng cao, kiểm tra toàn bộ kiến thức Chương 4. Mỗi câu có giải thích sau khi trả lời.</p>
+                <button class="btn-start primary" onclick="startG1()"><i class="fas fa-play"></i> Bắt Đầu Thi</button>
+            </div>
+
+            <!-- Play -->
+            <div id="g1-play" style="display:none;">
+                <div class="g-header">
+                    <span class="g-badge">Câu <span id="g1-curr">1</span>/20</span>
+                    <div class="g-progress-wrap"><div class="g-progress-bar" id="g1-prog" style="width:5%;"></div></div>
+                    <span class="g-score">⭐ <span id="g1-score">0</span></span>
+                </div>
+                <h3 class="q-text" id="g1-qtext"></h3>
+                <div class="options-grid" id="g1-options"></div>
+                <div class="feedback-box" id="g1-feedback"></div>
+                <button class="btn-next" id="g1-next" onclick="nextQ1()">Câu tiếp theo <i class="fas fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Result -->
+            <div id="g1-result" style="display:none;" class="result-panel">
+                <div class="result-circle">
+                    <span class="score-num" id="g1-final">0</span>
+                    <span class="score-total">/20</span>
+                </div>
+                <h2>Hoàn Thành Bài Thi!</h2>
+                <div class="result-grade" id="g1-grade"></div>
+                <p id="g1-msg"></p>
+                <button class="btn-start primary" onclick="initG1()"><i class="fas fa-redo"></i> Làm Lại</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= GAME 2: MATCHING ================= -->
+    <div id="game2" class="section-view">
+        <div class="match-wrap">
+            <h2 class="sec-title">Nối Ghép Khái Niệm</h2>
+            <p class="sec-sub" style="margin-bottom:1rem;">Bấm vào 1 khái niệm cột trái → bấm vào 1 định nghĩa cột phải để ghép cặp đúng.</p>
+            <div class="match-score-bar">
+                <i class="fas fa-trophy" style="color:var(--accent);"></i>
+                <span>Đã nối: <span id="m-count">0</span> / 7</span>
+                <button onclick="initG2()" style="margin-left:auto; background:var(--bg); border:1px solid var(--border); padding:.35rem .9rem; border-radius:50px; cursor:pointer; font-weight:600; font-size:.85rem; color:var(--muted);">↺ Chơi lại</button>
+            </div>
+            <div class="match-container">
+                <div class="match-col">
+                    <div class="match-col-label"><i class="fas fa-tag"></i> Khái niệm</div>
+                    <div id="m-terms"></div>
+                </div>
+                <div class="match-col">
+                    <div class="match-col-label"><i class="fas fa-align-left"></i> Định nghĩa</div>
+                    <div id="m-defs"></div>
+                </div>
+            </div>
+            <div class="match-win" id="m-win">
+                <h3><i class="fas fa-check-circle"></i> Xuất sắc! Bạn đã ghép đúng tất cả 7 cặp!</h3>
+                <button class="btn-start primary" onclick="initG2()"><i class="fas fa-redo"></i> Chơi lại</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= GAME 3: TRUE/FALSE ================= -->
+    <div id="game3" class="section-view">
+        <div class="tf-wrap">
+            <!-- Intro -->
+            <div id="g3-intro" class="game-panel start-overlay">
+                <div class="icon-wrap" style="background:var(--danger-bg);color:var(--danger);"><i class="fas fa-stopwatch"></i></div>
+                <h2>Đúng Sai Tốc Chiến</h2>
+                <p>10 mệnh đề liên tục, 30 giây. Phán đoán thật nhanh! Sau mỗi câu có giải thích ngắn để học thêm.</p>
+                <button class="btn-start danger" onclick="startG3()"><i class="fas fa-bolt"></i> Vào Cuộc Chiến</button>
+            </div>
+
+            <!-- Play -->
+            <div id="g3-play" class="game-panel" style="display:none;">
+                <div class="timer-bar"><div class="timer-fill" id="g3-timer"></div></div>
+                <div class="tf-stats">
+                    <span>Câu: <span id="g3-curr">1</span>/10</span>
+                    <span>Điểm: <span id="g3-score">0</span></span>
+                </div>
+                <div class="tf-card"><div class="tf-statement" id="g3-text"></div></div>
+                <div class="tf-feedback" id="g3-fb"></div>
+                <div class="tf-actions" style="margin-top:1.2rem;">
+                    <button class="tf-btn true" onclick="checkG3(true)">✔<span>ĐÚNG</span></button>
+                    <button class="tf-btn false" onclick="checkG3(false)">✘<span>SAI</span></button>
+                </div>
+            </div>
+
+            <!-- Result -->
+            <div id="g3-result" class="game-panel result-panel" style="display:none;">
+                <div class="result-circle">
+                    <span class="score-num" id="g3-final">0</span>
+                    <span class="score-total">/10</span>
+                </div>
+                <h2>Kết Quả Tốc Chiến!</h2>
+                <div class="result-grade" id="g3-grade"></div>
+                <p id="g3-msg"></p>
+                <button class="btn-start danger" onclick="initG3()"><i class="fas fa-redo"></i> Chơi Lại</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* =========================================================
+   TAB NAVIGATION
+========================================================= */
+function openTab(id, btn) {
+    document.querySelectorAll('.section-view').forEach(e => e.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(e => e.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+}
+
+/* =========================================================
+   GAME 1 – 20 QUIZ  (chính xác theo giáo trình)
+========================================================= */
+const qData = [
+    {
+        q: "V.I. Lênin cho rằng tự do cạnh tranh tất yếu dẫn đến điều gì?",
+        o: ["Cân bằng thị trường hoàn hảo", "Tích tụ và tập trung sản xuất dẫn đến độc quyền", "Khủng hoảng kinh tế toàn cầu", "Liên minh kinh tế tự do"],
+        a: 1,
+        explain: "Lênin khẳng định: 'Tự do cạnh tranh đẻ ra tập trung sản xuất và sự tập trung sản xuất này, khi phát triển tới mức độ nhất định, lại dẫn tới độc quyền.' (Toàn tập, t.27, tr.402)"
+    },
+    {
+        q: "Hình thức tổ chức độc quyền nào thống nhất cả sản xuất VÀ tiêu thụ hàng hóa?",
+        o: ["Cartel", "Syndicate", "Trust", "Consortium"],
+        a: 2,
+        explain: "Trust: cả việc sản xuất và tiêu thụ đều do một ban quản trị chung thống nhất. Các xí nghiệp tham gia trở thành cổ đông hưởng lợi nhuận theo cổ phần."
+    },
+    {
+        q: "Cartel (Các-ten) có đặc điểm gì nổi bật?",
+        o: ["Thống nhất lưu thông, mất độc lập thương mại", "Thỏa thuận giá cả, sản lượng – vẫn độc lập cả sản xuất lẫn lưu thông", "Sáp nhập hoàn toàn cả nhà máy và cửa hàng", "Liên kết đa ngành lệ thuộc tài chính"],
+        a: 1,
+        explain: "Cartel: các xí nghiệp ký hiệp nghị thỏa thuận giá cả, sản lượng, thị trường... nhưng vẫn độc lập hoàn toàn về sản xuất và lưu thông. Vì vậy cartel là liên minh không vững chắc."
+    },
+    {
+        q: "Syndicate (Xanh-đi-ca) khác Cartel ở điểm cốt lõi nào?",
+        o: ["Mọi việc mua–bán do một ban quản trị chung đảm nhận", "Sáp nhập hoàn toàn cả sản xuất", "Chỉ hoạt động trong ngành ngân hàng", "Vẫn độc lập hoàn toàn cả sản xuất lẫn lưu thông"],
+        a: 0,
+        explain: "Syndicate: các xí nghiệp vẫn giữ độc lập về sản xuất, nhưng KHÔNG độc lập ở khâu lưu thông – mọi việc mua–bán do một ban quản trị chung đảm nhận để mua rẻ, bán đắt."
+    },
+    {
+        q: "Tư bản tài chính được hình thành từ sự kết hợp nào?",
+        o: ["Ngân sách nhà nước và doanh nghiệp tư nhân", "Tư bản ngân hàng độc quyền và tư bản công nghiệp độc quyền", "Vốn nước ngoài và vốn trong nước", "Tư bản thương nghiệp và tư bản nông nghiệp"],
+        a: 1,
+        explain: "Lênin: 'Tư bản tài chính là kết quả của sự hợp nhất giữa tư bản ngân hàng của một số ít ngân hàng độc quyền lớn nhất với tư bản của những liên minh độc quyền các nhà công nghiệp.' (t.27, tr.489)"
+    },
+    {
+        q: "Đầu sỏ tài chính khống chế mạng lưới công ty thông qua 'chế độ tham dự' nghĩa là gì?",
+        o: ["Đóng thuế cao hơn doanh nghiệp thường", "Mua cổ phiếu khống chế công ty mẹ → chi phối công ty con, cháu dây chuyền", "Cử người vào quốc hội bầu cử", "Ký hợp đồng thuê mặt bằng dài hạn"],
+        a: 1,
+        explain: "Chế độ tham dự: bằng một lượng vốn nhỏ mua cổ phiếu khống chế 'công ty mẹ'; công ty mẹ khống chế 'công ty con'; công ty con khống chế 'công ty cháu'... Một lượng vốn nhỏ điều khiển vốn lớn gấp nhiều lần."
+    },
+    {
+        q: "Xuất khẩu tư bản khác xuất khẩu hàng hóa ở điểm gì?",
+        o: ["Xuất khẩu hàng thành phẩm thay vì bán đồ thô", "Xuất khẩu vốn (tiền/tài sản) để đầu tư kiếm giá trị thặng dư ở nước ngoài", "Bán sản phẩm kèm bảo hành quốc tế", "Chuyển giao công nghệ miễn phí"],
+        a: 1,
+        explain: "Xuất khẩu tư bản = xuất khẩu giá trị ra nước ngoài (đầu tư tư bản) nhằm thu giá trị thặng dư ở nước nhập khẩu – nơi có lao động, nguyên liệu rẻ. Khác hẳn xuất khẩu hàng hóa thông thường."
+    },
+    {
+        q: "Hai hình thức xuất khẩu tư bản chính là gì?",
+        o: ["Nhập khẩu và tái xuất khẩu", "Đầu tư trực tiếp (FDI) và đầu tư gián tiếp (cho vay, mua chứng khoán)", "Viện trợ nhân đạo và viện trợ quân sự", "Xuất khẩu nông sản và công nghiệp"],
+        a: 1,
+        explain: "Đầu tư trực tiếp: xây xí nghiệp, mua doanh nghiệp nước ngoài để kinh doanh. Đầu tư gián tiếp: cho vay, mua cổ phiếu, trái phiếu – không trực tiếp quản lý."
+    },
+    {
+        q: "Các tổ chức độc quyền chia nhau thế giới về kinh tế vì lý do nào theo Lênin?",
+        o: ["Do lòng nhân đạo muốn giúp nước nghèo", "Do quy luật: tích tụ tư bản + xuất khẩu tư bản buộc phải phân chia thị trường để kiếm lời", "Do hiệp ước chính trị quốc tế", "Do áp lực từ người tiêu dùng thế giới"],
+        a: 1,
+        explain: "Lênin: 'Bọn tư sản chia nhau thế giới, không phải do tính độc ác đặc biệt, mà do sự tập trung đã tới mức buộc chúng phải đi vào con đường ấy để kiếm lời.' (t.27, tr.472)"
+    },
+    {
+        q: "Phân chia lãnh thổ thế giới giữa các cường quốc TBCN dẫn đến hệ quả nghiêm trọng nào?",
+        o: ["Thúc đẩy hoà bình thế giới", "Gây ra các cuộc chiến tranh, thậm chí chiến tranh thế giới", "Làm giảm nghèo tại các nước thuộc địa", "Bình đẳng hóa quan hệ kinh tế quốc tế"],
+        a: 1,
+        explain: "Sự phân chia lãnh thổ không đều và phát triển không đều của các cường quốc tất yếu dẫn đến đấu tranh đòi chia lại lãnh thổ – nguyên nhân chính của các cuộc chiến tranh thế giới."
+    },
+    {
+        q: "Consortium (Côngxoócxiom) là hình thức tổ chức độc quyền như thế nào?",
+        o: ["Chỉ gồm các xí nghiệp trong một ngành hẹp", "Liên kết đa ngành, quy mô lớn, lệ thuộc tài chính vào một nhóm tư bản kếch xù", "Thỏa thuận giá cả giống Cartel nhưng phạm vi rộng hơn", "Hình thức độc quyền nhỏ nhất, manh nha"],
+        a: 1,
+        explain: "Consortium: có cả syndicate, trust thuộc các ngành khác nhau nhưng liên quan kinh tế-kỹ thuật, liên kết dọc, có thể hàng trăm xí nghiệp hoàn toàn phụ thuộc tài chính vào một nhóm tư bản."
+    },
+    {
+        q: "Độc quyền nhà nước TBCN là gì?",
+        o: ["Nhà nước nắm toàn bộ kinh tế như CNXH", "Kiểu độc quyền nhà nước nắm vị thế ĐQ ở lĩnh vực then chốt, cộng sinh với ĐQ tư nhân", "Chính sách quốc hữu hóa toàn bộ doanh nghiệp", "Tập trung quyền lực vào một đảng chính trị"],
+        a: 1,
+        explain: "Độc quyền nhà nước TB: hình thành trên cơ sở cộng sinh giữa độc quyền tư nhân và sức mạnh kinh tế nhà nước, do giai cấp tư sản độc quyền chi phối – nhằm duy trì ổn định chế độ TBCN."
+    },
+    {
+        q: "Đặc trưng 'kết hợp nhân sự' của độc quyền nhà nước biểu hiện ra sao?",
+        o: ["Nhà nước tuyển dụng công nhân từ nghiệp đoàn", "Đại diện tổ chức ĐQ vào bộ máy NN và quan chức NN vào ban quản trị ĐQ – 'hôm nay bộ trưởng, ngày mai chủ ngân hàng'", "Doanh nghiệp NN thuê CEO từ nước ngoài", "Đảng chính trị nắm toàn bộ doanh nghiệp nhà nước"],
+        a: 1,
+        explain: "Sự kết hợp nhân sự thực hiện qua các đảng phái: đại biểu ĐQ tham gia bộ máy NN; quan chức NN vào ban quản trị ĐQ. Các hội chủ xí nghiệp trở thành 'chính phủ đằng sau chính phủ'."
+    },
+    {
+        q: "Sở hữu nhà nước trong độc quyền TBCN thực chất là sở hữu của ai?",
+        o: ["Toàn thể nhân dân lao động", "Tập thể giai cấp tư sản, phục vụ lợi ích tư bản độc quyền", "Nhà nước trung lập, phục vụ lợi ích công", "Giai cấp công nhân thông qua công đoàn"],
+        a: 1,
+        explain: "Sở hữu trong ĐQ NN là sở hữu tập thể của giai cấp tư sản, thực chất phục vụ và ủng hộ lợi ích tư bản độc quyền, không phải tài sản của toàn dân như trong CNXH."
+    },
+    {
+        q: "Nhà nước tư sản dùng các công cụ nào để điều tiết kinh tế trong ĐQ nhà nước?",
+        o: ["Chỉ dùng bạo lực quân sự và cảnh sát", "Ngân sách, thuế, hệ thống tiền tệ-tín dụng, DNNN, kế hoạch hóa, pháp luật", "Chỉ dùng chính sách lãi suất ngân hàng", "Phân phối bình quân thu nhập quốc dân"],
+        a: 1,
+        explain: "Hệ thống điều tiết của nhà nước TB: ngân sách, thuế, tiền tệ-tín dụng, DNNN, kế hoạch/chương trình hóa, công cụ hành chính-pháp lý – kết hợp ưu đãi và trừng phạt."
+    },
+    {
+        q: "Lợi nhuận độc quyền cao hơn lợi nhuận bình quân do đâu?",
+        o: ["Do doanh nghiệp ĐQ làm việc siêng hơn", "Từ bóc lột CN trong ĐQ + CN ngoài ĐQ + TB vừa nhỏ thua lỗ + nhân dân lao động thuộc địa", "Do ĐQ nhận trợ cấp đặc biệt từ chính phủ", "Do giảm chi phí sản xuất nhờ tự động hóa"],
+        a: 1,
+        explain: "Nguồn lợi nhuận ĐQ cao: LĐ CN trong ĐQ + LĐ không công CN ngoài ĐQ + GT thặng dư của TB vừa nhỏ bị tước đoạt khi thua lỗ + LĐ thặng dư nhân dân thuộc địa/phụ thuộc."
+    },
+    {
+        q: "Sau khi ĐQ ra đời, cạnh tranh giữa các tổ chức ĐQ có đặc điểm gì?",
+        o: ["Biến mất hoàn toàn, chỉ còn hợp tác", "Vẫn tồn tại nhưng mang tính chất tàn khốc, hủy diệt hơn cạnh tranh thời TBCN tự do", "Trở nên lành mạnh, tuân thủ luật pháp hơn", "Chỉ còn là cạnh tranh giá cả đơn thuần"],
+        a: 1,
+        explain: "Độc quyền không thủ tiêu cạnh tranh. Cạnh tranh trong giai đoạn ĐQ diễn ra giữa các tập đoàn khổng lồ có sức mạnh vật chất hùng hậu + sự ủng hộ nhà nước → còn tàn khốc, phức tạp và nguy hiểm hơn."
+    },
+    {
+        q: "Grab mua lại Uber ĐNA là minh chứng cho quy luật nào trong lý luận Lênin?",
+        o: ["Xuất khẩu tư bản sang nước kém phát triển", "Tự do cạnh tranh → tập trung sản xuất → hình thành độc quyền", "Phân chia lãnh thổ thế giới giữa cường quốc", "Sở hữu nhà nước thay thế tư nhân"],
+        a: 1,
+        explain: "Cuộc chiến đốt tiền Grab–Uber là biểu hiện của cạnh tranh khốc liệt. Kết quả: Grab thâu tóm Uber (tập trung tư bản/sản xuất) → nắm vị thế độc quyền, áp đặt giá cả độc quyền."
+    },
+    {
+        q: "Cơ chế điều tiết kinh tế của ĐQ nhà nước là sự dung hợp của những cơ chế nào?",
+        o: ["Kế hoạch hóa tập trung + phân phối bình quân", "Thị trường + độc quyền tư nhân + điều tiết nhà nước", "Chỉ thị hành chính + thuế + trợ cấp", "Dân chủ kinh tế + kiểm soát xã hội"],
+        a: 1,
+        explain: "Cơ chế ĐQ nhà nước: dung hợp 3 cơ chế – thị trường, ĐQ tư nhân, điều tiết nhà nước – nhằm phát huy mặt tích cực và hạn chế mặt tiêu cực của từng cơ chế, phục vụ lợi ích TBCN độc quyền."
+    },
+    {
+        q: "Từ những năm 50 TK XX, sau khi hệ thống thuộc địa tan rã, CNTB chuyển sang hình thức bóc lột nào?",
+        o: ["Từ bỏ hoàn toàn chủ nghĩa thực dân", "Chủ nghĩa thực dân mới: viện trợ kinh tế, kỹ thuật, quân sự để duy trì lệ thuộc", "Chỉ còn quan hệ thương mại bình đẳng", "Hợp tác phát triển ODA hoàn toàn miễn phí"],
+        a: 1,
+        explain: "Phong trào giải phóng dân tộc làm sụp đổ hệ thống thuộc địa kiểu cũ, nhưng CNTB chuyển sang 'chủ nghĩa thực dân mới': dùng viện trợ KT-KT-QS để duy trì sự lệ thuộc của các nước đang phát triển."
+    }
+];
+
+let g1curr = 0, g1score = 0, g1answered = false;
+
+function initG1() {
+    document.getElementById('g1-intro').style.display = 'block';
+    document.getElementById('g1-play').style.display = 'none';
+    document.getElementById('g1-result').style.display = 'none';
+    g1curr = 0; g1score = 0;
+}
+
+function startG1() {
+    document.getElementById('g1-intro').style.display = 'none';
+    document.getElementById('g1-play').style.display = 'block';
+    loadQ1();
+}
+
+function loadQ1() {
+    g1answered = false;
+    const item = qData[g1curr];
+    document.getElementById('g1-curr').innerText = g1curr + 1;
+    document.getElementById('g1-score').innerText = g1score;
+    document.getElementById('g1-prog').style.width = ((g1curr / 20) * 100) + '%';
+    document.getElementById('g1-qtext').innerText = item.q;
+    document.getElementById('g1-feedback').className = 'feedback-box';
+    document.getElementById('g1-feedback').innerText = '';
+    document.getElementById('g1-next').className = 'btn-next';
+
+    const letters = ['A','B','C','D'];
+    const box = document.getElementById('g1-options');
+    box.innerHTML = '';
+    item.o.forEach((txt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn';
+        btn.innerHTML = `<span class="opt-letter">${letters[i]}</span> ${txt}`;
+        btn.onclick = () => checkQ1(btn, i, item.a, item.explain);
+        box.appendChild(btn);
+    });
+}
+
+function checkQ1(btn, sel, correct, explain) {
+    if (g1answered) return;
+    g1answered = true;
+    const btns = document.querySelectorAll('#g1-options .opt-btn');
+    btns.forEach(b => b.disabled = true);
+    const fb = document.getElementById('g1-feedback');
+    if (sel === correct) {
+        btn.classList.add('correct');
+        g1score++;
+        document.getElementById('g1-score').innerText = g1score;
+        fb.className = 'feedback-box ok show';
+        fb.innerHTML = '✔ Chính xác! ' + explain;
+    } else {
+        btn.classList.add('wrong');
+        btns[correct].classList.add('correct');
+        fb.className = 'feedback-box no show';
+        fb.innerHTML = '✘ Chưa đúng. ' + explain;
+    }
+    document.getElementById('g1-next').className = 'btn-next show';
+}
+
+function nextQ1() {
+    g1curr++;
+    if (g1curr < 20) loadQ1();
+    else finishG1();
+}
+
+function finishG1() {
+    document.getElementById('g1-play').style.display = 'none';
+    const r = document.getElementById('g1-result');
+    r.style.display = 'block';
+    document.getElementById('g1-final').innerText = g1score;
+    const grade = document.getElementById('g1-grade');
+    const msg = document.getElementById('g1-msg');
+    if (g1score >= 18) { grade.style.cssText='background:#D1FAE5;color:#047857;'; grade.innerText='Xuất sắc 🏆'; msg.innerText='Bạn nắm vững hoàn toàn lý luận Lênin về độc quyền!'; }
+    else if (g1score >= 15) { grade.style.cssText='background:#EDE9FE;color:#6D28D9;'; grade.innerText='Giỏi 🌟'; msg.innerText='Kết quả rất tốt! Ôn lại một vài điểm nhỏ là hoàn hảo.'; }
+    else if (g1score >= 12) { grade.style.cssText='background:#FEF3C7;color:#B45309;'; grade.innerText='Khá 👍'; msg.innerText='Khá tốt! Hãy xem lại infographic và làm lại nhé.'; }
+    else { grade.style.cssText='background:#FEE2E2;color:#B91C1C;'; grade.innerText='Cần ôn thêm 📚'; msg.innerText='Hãy đọc lại phần infographic và thử lại!'; }
+}
+
+/* =========================================================
+   GAME 2 – MATCHING (7 cặp)
+========================================================= */
+const pairs = [
+    { t: "Cartel", d: "Thỏa thuận giá cả, sản lượng – vẫn độc lập cả sản xuất lẫn lưu thông" },
+    { t: "Syndicate", d: "Thống nhất đầu mối mua–bán, mất tự do thương mại" },
+    { t: "Trust", d: "Sáp nhập hoàn toàn cả sản xuất lẫn tiêu thụ vào ban quản trị chung" },
+    { t: "Consortium", d: "Liên kết đa ngành, quy mô lớn nhất, lệ thuộc tài chính vào đại tư bản" },
+    { t: "Tư bản tài chính", d: "Sản phẩm dung hợp giữa TB ngân hàng ĐQ và TB công nghiệp ĐQ" },
+    { t: "Đầu sỏ tài chính", d: "Nhóm tư bản kếch xù chi phối kinh tế–chính trị qua 'chế độ tham dự'" },
+    { t: "Độc quyền nhà nước", d: "Cộng sinh giữa ĐQ tư nhân và quyền lực nhà nước, phục vụ lợi ích TBCN" }
+];
+
+let selTerm = null, selDef = null, matchedCount = 0;
+
+function initG2() {
+    const colT = document.getElementById('m-terms');
+    const colD = document.getElementById('m-defs');
+    colT.innerHTML = ''; colD.innerHTML = '';
+    matchedCount = 0; selTerm = null; selDef = null;
+    document.getElementById('m-win').style.display = 'none';
+    document.getElementById('m-count').innerText = '0';
+
+    const terms = pairs.map((p, i) => ({ text: p.t, id: i, type: 't' }));
+    const defs  = pairs.map((p, i) => ({ text: p.d, id: i, type: 'd' }));
+    terms.sort(() => Math.random() - 0.5);
+    defs.sort(() => Math.random() - 0.5);
+
+    terms.forEach(o => {
+        const d = document.createElement('div');
+        d.className = 'match-item'; d.innerText = o.text;
+        d.onclick = () => selectMatch(d, o);
+        colT.appendChild(d);
+    });
+    defs.forEach(o => {
+        const d = document.createElement('div');
+        d.className = 'match-item'; d.innerText = o.text;
+        d.onclick = () => selectMatch(d, o);
+        colD.appendChild(d);
+    });
+}
+
+function selectMatch(el, obj) {
+    if (el.classList.contains('matched')) return;
+    if (obj.type === 't') {
+        document.querySelectorAll('#m-terms .match-item').forEach(e => e.classList.remove('selected'));
+        el.classList.add('selected');
+        selTerm = { el, id: obj.id };
+    } else {
+        document.querySelectorAll('#m-defs .match-item').forEach(e => e.classList.remove('selected'));
+        el.classList.add('selected');
+        selDef = { el, id: obj.id };
+    }
+    if (selTerm && selDef) {
+        const ts = selTerm, ds = selDef;
+        if (ts.id === ds.id) {
+            ts.el.classList.remove('selected'); ds.el.classList.remove('selected');
+            ts.el.classList.add('matched'); ds.el.classList.add('matched');
+            matchedCount++;
+            document.getElementById('m-count').innerText = matchedCount;
+            if (matchedCount === pairs.length) document.getElementById('m-win').style.display = 'block';
+        } else {
+            ts.el.classList.add('wrong-anim'); ds.el.classList.add('wrong-anim');
+            setTimeout(() => {
+                ts.el.classList.remove('selected', 'wrong-anim');
+                ds.el.classList.remove('selected', 'wrong-anim');
+            }, 450);
+        }
+        selTerm = null; selDef = null;
+    }
+}
+
+initG2();
+
+/* =========================================================
+   GAME 3 – TRUE / FALSE (chính xác theo giáo trình)
+========================================================= */
+const tfData = [
+    { t: "Tự do cạnh tranh trong TBCN tất yếu dẫn đến tập trung sản xuất và hình thành độc quyền.", a: true, explain: "Đúng – Lênin khẳng định đây là quy luật tất yếu của TBCN." },
+    { t: "Tư bản tài chính là tiền của người dân đóng thuế tích lũy lại.", a: false, explain: "Sai – TB tài chính = sự hợp nhất của TB ngân hàng ĐQ + TB công nghiệp ĐQ, không phải tiền thuế dân." },
+    { t: "Trong 'chế độ tham dự', đầu sỏ tài chính mua cổ phiếu khống chế 'công ty mẹ' để chi phối chuỗi công ty con, cháu.", a: true, explain: "Đúng – Đây là cơ chế đặc trưng của tài phiệt: dùng vốn nhỏ kiểm soát vốn lớn gấp nhiều lần." },
+    { t: "Cartel là hình thức tổ chức ĐQ ổn định nhất vì các thành viên cam kết tuyệt đối.", a: false, explain: "Sai – Cartel là liên minh KHÔNG vững chắc. Thành viên bất lợi thường rút ra, làm cartel tan vỡ trước kỳ hạn." },
+    { t: "Xuất khẩu tư bản và xuất khẩu hàng hóa đều là hình thức bóc lột nước ngoài, nhưng xuất khẩu TB phổ biến hơn trong giai đoạn đế quốc.", a: true, explain: "Đúng – TBCN tự do: chủ yếu xuất khẩu HH. TBCN ĐQ: xuất khẩu TB trở thành phổ biến và đặc trưng." },
+    { t: "Khi ĐQ xuất hiện, cạnh tranh biến mất hoàn toàn vì chỉ còn 1 hoặc vài hãng thống trị.", a: false, explain: "Sai – ĐQ không thủ tiêu cạnh tranh. Cạnh tranh vẫn tồn tại nhưng càng tàn khốc, nguy hiểm và phức tạp hơn." },
+    { t: "Sở hữu nhà nước trong ĐQ nhà nước TBCN phục vụ lợi ích tập thể của giai cấp tư sản ĐQ, không phải toàn dân.", a: true, explain: "Đúng – Sở hữu trong ĐQ NN là 'sở hữu tập thể của giai cấp tư sản' có nhiệm vụ phục vụ lợi ích TB ĐQ." },
+    { t: "Sau phong trào giải phóng dân tộc thập niên 50 TK XX, CNTB đã từ bỏ hoàn toàn chủ nghĩa thực dân.", a: false, explain: "Sai – CNTB chuyển sang 'thực dân mới': viện trợ KT-KT-QS để duy trì lệ thuộc, không từ bỏ." },
+    { t: "Cơ chế điều tiết ĐQ nhà nước là sự dung hợp 3 cơ chế: thị trường, ĐQ tư nhân và điều tiết nhà nước.", a: true, explain: "Đúng – Đây là đặc trưng thứ 3 của ĐQ nhà nước trong CNTB theo giáo trình." },
+    { t: "Grab thâu tóm Uber ĐNA là ví dụ minh chứng cho quy luật tập trung sản xuất dẫn đến độc quyền của Lênin.", a: true, explain: "Đúng – Cạnh tranh đốt tiền → tập trung (Grab mua Uber) → nắm ĐQ → áp đặt giá cả ĐQ. Đúng quy luật Lênin." }
+];
+
+let g3curr = 0, g3score = 0, g3timerInt, g3answering = false;
+
+function initG3() {
+    document.getElementById('g3-intro').style.display = 'block';
+    document.getElementById('g3-play').style.display = 'none';
+    document.getElementById('g3-result').style.display = 'none';
+    g3curr = 0; g3score = 0;
+}
+
+function startG3() {
+    document.getElementById('g3-intro').style.display = 'none';
+    document.getElementById('g3-play').style.display = 'block';
+    document.getElementById('g3-timer').style.transition = 'none';
+    document.getElementById('g3-timer').style.width = '100%';
+    g3curr = 0; g3score = 0; g3answering = false;
+    loadTF();
+    setTimeout(() => {
+        document.getElementById('g3-timer').style.transition = 'width 30s linear';
+        document.getElementById('g3-timer').style.width = '0%';
+    }, 80);
+    let timeLeft = 30;
+    clearInterval(g3timerInt);
+    g3timerInt = setInterval(() => {
+        timeLeft--;
+        if (timeLeft <= 0) { clearInterval(g3timerInt); finishG3(); }
+    }, 1000);
+}
+
+function loadTF() {
+    g3answering = false;
+    document.getElementById('g3-curr').innerText = g3curr + 1;
+    document.getElementById('g3-score').innerText = g3score;
+    document.getElementById('g3-text').innerText = tfData[g3curr].t;
+    const fb = document.getElementById('g3-fb');
+    fb.className = 'tf-feedback'; fb.innerText = '';
+    document.querySelectorAll('.tf-btn').forEach(b => b.disabled = false);
+}
+
+function checkG3(answer) {
+    if (g3answering) return;
+    g3answering = true;
+    document.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
+    const item = tfData[g3curr];
+    const fb = document.getElementById('g3-fb');
+    if (answer === item.a) {
+        g3score++;
+        document.getElementById('g3-score').innerText = g3score;
+        fb.className = 'tf-feedback ok show';
+        fb.innerHTML = '✔ Đúng! ' + item.explain;
+    } else {
+        fb.className = 'tf-feedback no show';
+        fb.innerHTML = '✘ Sai. ' + item.explain;
+    }
+    setTimeout(() => {
+        g3curr++;
+        if (g3curr < 10) loadTF();
+        else { clearInterval(g3timerInt); finishG3(); }
+    }, 1500);
+}
+
+function finishG3() {
+    document.getElementById('g3-play').style.display = 'none';
+    const r = document.getElementById('g3-result');
+    r.style.display = 'block';
+    document.getElementById('g3-final').innerText = g3score;
+    const grade = document.getElementById('g3-grade');
+    const msg = document.getElementById('g3-msg');
+    if (g3score >= 9) { grade.style.cssText='background:#D1FAE5;color:#047857;'; grade.innerText='Xuất sắc 🔥'; msg.innerText='Phản xạ nhanh, kiến thức chắc – bạn sẵn sàng thi rồi!'; }
+    else if (g3score >= 7) { grade.style.cssText='background:#EDE9FE;color:#6D28D9;'; grade.innerText='Tốt lắm 💡'; msg.innerText='Gần đỉnh rồi! Ôn thêm phần chưa chắc nhé.'; }
+    else if (g3score >= 5) { grade.style.cssText='background:#FEF3C7;color:#B45309;'; grade.innerText='Khá 👍'; msg.innerText='Xem lại infographic và thử lại để cải thiện!'; }
+    else { grade.style.cssText='background:#FEE2E2;color:#B91C1C;'; grade.innerText='Cần ôn thêm 📚'; msg.innerText='Đọc kỹ lại lý luận Lênin trong infographic rồi thử lại!'; }
+}
+</script>
+</body>
+</html>
