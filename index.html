@@ -4,525 +4,735 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Học Thuyết Lênin – Độc Quyền Tư Bản | MLN122</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #4F46E5;
-            --primary-light: #818CF8;
-            --primary-bg: #EEF2FF;
-            --secondary: #EC4899;
-            --secondary-bg: #FDF2F8;
-            --accent: #F59E0B;
-            --accent-bg: #FFFBEB;
-            --bg: #F8FAFC;
+            --navy: #0F1A3E;
+            --navy2: #162455;
+            --indigo: #2D3A8C;
+            --blue: #3B5BDB;
+            --blue-lt: #4C6EF5;
+            --gold: #E8A020;
+            --gold-lt: #FFD43B;
+            --cream: #FFF9F0;
+            --red: #C92A2A;
+            --red-lt: #FA5252;
+            --green: #087F5B;
+            --green-lt: #20C997;
             --surface: #FFFFFF;
-            --text: #1E293B;
-            --muted: #64748B;
-            --success: #10B981;
-            --success-bg: #D1FAE5;
-            --danger: #EF4444;
-            --danger-bg: #FEE2E2;
-            --border: #E2E8F0;
-            --radius: 16px;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
-            --shadow: 0 8px 24px rgba(0,0,0,.08);
-            --shadow-lg: 0 20px 48px rgba(0,0,0,.1);
+            --bg: #F0F4FF;
+            --text: #1A1F3A;
+            --muted: #5A6480;
+            --border: #D8E0FF;
+            --radius: 18px;
+            --shadow: 0 4px 20px rgba(15,26,62,.10);
+            --shadow-lg: 0 12px 48px rgba(15,26,62,.15);
         }
 
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            min-height: 100vh;
+        }
 
         /* ── HEADER ── */
         .header {
-            background: linear-gradient(135deg, #3730A3 0%, var(--primary) 45%, var(--secondary) 100%);
-            color: white; padding: 3.5rem 1rem 2.5rem; text-align:center;
-            border-radius: 0 0 48px 48px;
-            box-shadow: 0 12px 40px rgba(79,70,229,.25);
-            margin-bottom: 2.5rem; position: relative; overflow:hidden;
+            background: var(--navy);
+            color: white;
+            padding: 3.5rem 1.5rem 2.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         .header::before {
-            content:''; position:absolute; inset:0;
-            background: repeating-linear-gradient(60deg,rgba(255,255,255,.04) 0px,rgba(255,255,255,.04) 1px,transparent 1px,transparent 28px);
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 50%, rgba(45,58,140,.6) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 80% 20%, rgba(59,91,219,.3) 0%, transparent 50%);
         }
+        .header::after {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: repeating-linear-gradient(
+                0deg, transparent, transparent 39px, rgba(255,255,255,.03) 39px, rgba(255,255,255,.03) 40px
+            ), repeating-linear-gradient(
+                90deg, transparent, transparent 39px, rgba(255,255,255,.03) 39px, rgba(255,255,255,.03) 40px
+            );
+        }
+        .header-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
         .header-badge {
-            display:inline-block; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3);
-            padding:.3rem 1rem; border-radius:50px; font-size:.8rem; font-weight:600;
-            letter-spacing:1px; margin-bottom:1rem; position:relative;
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(232,160,32,.15); border: 1px solid rgba(232,160,32,.4);
+            color: var(--gold-lt); padding: .4rem 1.1rem; border-radius: 50px;
+            font-size: .8rem; font-weight: 700; letter-spacing: 1.5px;
+            text-transform: uppercase; margin-bottom: 1.3rem;
         }
-        .header h1 { font-family:'Quicksand',sans-serif; font-size:2.6rem; font-weight:700; margin-bottom:.8rem; position:relative; }
-        .header p { font-size:1.05rem; opacity:.88; max-width:680px; margin:0 auto; position:relative; }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem); font-weight: 900;
+            line-height: 1.15; margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--gold-lt) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header p {
+            font-size: 1rem; color: rgba(255,255,255,.7);
+            max-width: 580px; margin: 0 auto;
+        }
 
         /* ── TABS ── */
+        .nav-wrap {
+            background: var(--surface);
+            border-bottom: 2px solid var(--border);
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 12px rgba(15,26,62,.08);
+        }
         .nav-tabs {
-            display:flex; justify-content:center; gap:.75rem; flex-wrap:wrap;
-            padding:.75rem 1rem; background:var(--surface);
-            border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100;
-            box-shadow: var(--shadow-sm);
+            display: flex; max-width: 1100px; margin: 0 auto;
+            padding: 0 1rem; overflow-x: auto; gap: 0;
+            scrollbar-width: none;
         }
+        .nav-tabs::-webkit-scrollbar { display: none; }
         .tab-btn {
-            background:var(--bg); border:2px solid var(--border); padding:.7rem 1.4rem;
-            border-radius:50px; font-size:.95rem; font-weight:600; color:var(--muted);
-            cursor:pointer; transition:all .25s; display:flex; align-items:center; gap:7px;
+            background: none; border: none; border-bottom: 3px solid transparent;
+            padding: 1rem 1.4rem; font-size: .92rem; font-weight: 600; color: var(--muted);
+            cursor: pointer; transition: all .2s; display: flex; align-items: center; gap: 8px;
+            white-space: nowrap; flex-shrink: 0; margin-bottom: -2px;
         }
-        .tab-btn:hover { border-color:var(--primary-light); color:var(--primary); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
-        .tab-btn.active { background:var(--primary); color:white; border-color:var(--primary); box-shadow:0 6px 18px rgba(79,70,229,.3); }
+        .tab-btn:hover { color: var(--blue); }
+        .tab-btn.active {
+            color: var(--blue); border-bottom-color: var(--blue);
+            background: linear-gradient(180deg, transparent, rgba(59,91,219,.04));
+        }
+        .tab-btn i { font-size: .85rem; }
 
         /* ── LAYOUT ── */
-        .container { max-width:1200px; margin:0 auto; padding:2rem 1rem 5rem; }
-        .section-view { display:none; animation:fadeIn .35s ease; }
-        .section-view.active { display:block; }
-        @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+        .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 6rem; }
+        .section-view { display: none; animation: fadeUp .3s ease; }
+        .section-view.active { display: block; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
-        /* ── SECTION TITLE ── */
-        .sec-title { text-align:center; font-family:'Quicksand',sans-serif; font-size:2rem; font-weight:700; margin-bottom:.5rem; }
-        .sec-sub { text-align:center; color:var(--muted); margin-bottom:2.5rem; }
+        /* ── SECTION HEADER ── */
+        .sec-head { margin-bottom: 2.5rem; }
+        .sec-head h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--navy);
+            margin-bottom: .4rem;
+        }
+        .sec-head p { color: var(--muted); font-size: .95rem; }
 
-        /* ── INFOGRAPHIC ── */
-        .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem; margin-bottom:2rem; }
+        /* ── INFO CARDS ── */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+
         .card {
-            background:var(--surface); border-radius:var(--radius); padding:2rem;
-            box-shadow:var(--shadow-sm); transition:.3s; position:relative; overflow:hidden;
-            border:1px solid var(--border);
+            background: var(--surface); border-radius: var(--radius);
+            padding: 1.75rem; box-shadow: var(--shadow); border: 1px solid var(--border);
+            position: relative; overflow: hidden; transition: transform .25s, box-shadow .25s;
         }
-        .card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
-        .card-accent { position:absolute; top:0; left:0; width:5px; height:100%; border-radius:var(--radius) 0 0 var(--radius); }
-        .card-icon {
-            font-size:1.6rem; margin-bottom:1.2rem; width:56px; height:56px;
-            display:inline-flex; justify-content:center; align-items:center; border-radius:12px;
-        }
-        .card h3 { font-size:1.25rem; font-family:'Quicksand',sans-serif; font-weight:700; margin-bottom:.75rem; }
-        .card p { color:var(--muted); font-size:.93rem; margin-bottom:.5rem; }
-        .card ul { padding-left:1.3rem; color:var(--muted); font-size:.9rem; }
-        .card ul li { margin-bottom:.4rem; }
-        .badge-chip {
-            display:inline-block; padding:.25rem .8rem; border-radius:50px;
-            font-size:.8rem; font-weight:700; margin-bottom:.9rem;
-        }
-        .char-number {
-            position:absolute; top:1.2rem; right:1.5rem;
-            font-size:3rem; font-weight:800; opacity:.06; font-family:'Quicksand',sans-serif;
-        }
+        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
-        /* Colors per card */
-        .c-blue  { --cc:#3B82F6; --cb:#EFF6FF; } .c-blue .card-accent { background:#3B82F6; }
-        .c-blue .card-icon { background:#DBEAFE; color:#1D4ED8; } .c-blue .badge-chip { background:#DBEAFE; color:#1D4ED8; }
-        .c-violet{ --cc:#8B5CF6; --cb:#F5F3FF; } .c-violet .card-accent { background:#8B5CF6; }
-        .c-violet .card-icon { background:#EDE9FE; color:#6D28D9; } .c-violet .badge-chip { background:#EDE9FE; color:#6D28D9; }
-        .c-green { --cc:#10B981; --cb:#ECFDF5; } .c-green .card-accent { background:#10B981; }
-        .c-green .card-icon { background:#D1FAE5; color:#047857; } .c-green .badge-chip { background:#D1FAE5; color:#047857; }
-        .c-amber { --cc:#F59E0B; --cb:#FFFBEB; } .c-amber .card-accent { background:#F59E0B; }
-        .c-amber .card-icon { background:#FEF3C7; color:#B45309; } .c-amber .badge-chip { background:#FEF3C7; color:#B45309; }
-        .c-red   { --cc:#EF4444; --cb:#FEF2F2; } .c-red .card-accent { background:#EF4444; }
-        .c-red .card-icon { background:#FEE2E2; color:#B91C1C; } .c-red .badge-chip { background:#FEE2E2; color:#B91C1C; }
+        .card-stripe {
+            position: absolute; top: 0; left: 0; right: 0; height: 4px; border-radius: var(--radius) var(--radius) 0 0;
+        }
+        .card-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem; font-weight: 900; position: absolute;
+            top: .5rem; right: 1.2rem; opacity: .055; line-height: 1; color: var(--text);
+        }
+        .card-icon-box {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; margin-bottom: 1rem;
+        }
+        .card-tag {
+            display: inline-block; font-size: .72rem; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase; padding: .25rem .8rem;
+            border-radius: 50px; margin-bottom: .8rem;
+        }
+        .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .65rem; color: var(--navy); }
+        .card p, .card li { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+        .card ul { padding-left: 1.2rem; }
+        .card ul li { margin-bottom: .3rem; }
+        .card strong { color: var(--text); font-weight: 700; }
 
-        /* Case Study card */
+        /* card color themes */
+        .t-blue   .card-stripe { background: linear-gradient(90deg,#3B5BDB,#748FFC); }
+        .t-blue   .card-icon-box { background: #EDF2FF; color: #3B5BDB; }
+        .t-blue   .card-tag { background: #EDF2FF; color: #2F4AC3; }
+
+        .t-violet .card-stripe { background: linear-gradient(90deg,#7048E8,#9775FA); }
+        .t-violet .card-icon-box { background: #F3F0FF; color: #7048E8; }
+        .t-violet .card-tag { background: #F3F0FF; color: #5F3DC4; }
+
+        .t-teal   .card-stripe { background: linear-gradient(90deg,#087F5B,#20C997); }
+        .t-teal   .card-icon-box { background: #E6FCF5; color: #087F5B; }
+        .t-teal   .card-tag { background: #E6FCF5; color: #087F5B; }
+
+        .t-amber  .card-stripe { background: linear-gradient(90deg,#E67700,#FFD43B); }
+        .t-amber  .card-icon-box { background: #FFF9DB; color: #D48800; }
+        .t-amber  .card-tag { background: #FFF9DB; color: #B37D00; }
+
+        .t-red    .card-stripe { background: linear-gradient(90deg,#C92A2A,#FF6B6B); }
+        .t-red    .card-icon-box { background: #FFF5F5; color: #C92A2A; }
+        .t-red    .card-tag { background: #FFF5F5; color: #C92A2A; }
+
+        /* Case card */
         .case-card {
-            background:var(--surface); border-radius:var(--radius); padding:2rem;
-            border:2px solid var(--secondary); box-shadow:var(--shadow-sm);
-            display:flex; gap:2rem; flex-wrap:wrap; align-items:flex-start; margin-bottom:2rem;
+            background: var(--surface); border-radius: var(--radius);
+            padding: 2rem; border: 2px solid #FFADD2;
+            box-shadow: var(--shadow); display: flex; gap: 2rem;
+            flex-wrap: wrap; margin-bottom: 2rem;
         }
-        .case-left { flex:1; min-width:260px; }
+        .case-left { flex: 1; min-width: 250px; }
+        .case-left h3 {
+            font-family: 'Playfair Display', serif; font-size: 1.4rem;
+            color: #862E9C; margin-bottom: .75rem;
+        }
+        .case-left p, .case-left li { font-size: .9rem; color: var(--muted); }
+        .case-left ol { padding-left: 1.3rem; }
+        .case-left ol li { margin-bottom: .4rem; }
         .case-right {
-            flex:1; min-width:260px; background:var(--secondary-bg);
-            border-radius:12px; padding:1.5rem;
+            flex: 1; min-width: 250px;
+            background: linear-gradient(135deg, #FDF2F8, #F8BBD9);
+            border-radius: 12px; padding: 1.5rem;
         }
-        .case-right h4 { color:#BE185D; font-size:1rem; font-weight:700; margin-bottom:.6rem; }
+        .case-right h4 { color: #862E9C; font-size: .95rem; font-weight: 700; margin-bottom: .7rem; }
+        .case-right p { font-size: .87rem; color: #6B2373; line-height: 1.65; }
 
         /* Summary box */
         .summary-box {
-            background: linear-gradient(135deg, #3730A3, var(--primary));
-            border-radius:var(--radius); padding:2.5rem; color:white; margin-top:2rem;
+            background: linear-gradient(135deg, var(--navy), var(--indigo));
+            border-radius: var(--radius); padding: 2.5rem; color: white; margin-top: 2rem;
+            position: relative; overflow: hidden;
         }
-        .summary-box h3 { font-family:'Quicksand',sans-serif; font-size:1.5rem; margin-bottom:1rem; }
-        .summary-box ol { padding-left:1.5rem; }
-        .summary-box ol li { margin-bottom:.6rem; opacity:.9; }
+        .summary-box::before {
+            content: '⊞'; position: absolute; right: 2rem; top: 1rem;
+            font-size: 8rem; opacity: .04; line-height: 1;
+        }
+        .summary-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1.2rem; color: var(--gold-lt); }
+        .summary-box ol { padding-left: 1.4rem; }
+        .summary-box ol li { margin-bottom: .7rem; opacity: .9; font-size: .93rem; line-height: 1.6; }
+        .summary-box strong { color: var(--gold-lt); }
 
-        /* ── GAME PANEL ── */
-        .game-panel {
-            background:var(--surface); border-radius:var(--radius); padding:2.5rem;
-            box-shadow:var(--shadow); max-width:800px; margin:0 auto; text-align:center;
+        /* ── GAME PANELS ── */
+        .game-wrap { max-width: 780px; margin: 0 auto; }
+
+        .game-card {
+            background: var(--surface); border-radius: var(--radius);
+            padding: 2.5rem; box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
         }
 
-        /* Start overlay */
-        .start-overlay .icon-wrap {
-            width:80px; height:80px; border-radius:50%; display:inline-flex;
-            align-items:center; justify-content:center; font-size:2.2rem;
-            margin-bottom:1.2rem;
+        /* Intro */
+        .intro-icon {
+            width: 72px; height: 72px; border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; margin: 0 auto 1.5rem;
         }
-        .start-overlay h2 { font-family:'Quicksand',sans-serif; font-size:1.8rem; margin-bottom:.75rem; }
-        .start-overlay p { color:var(--muted); max-width:500px; margin:0 auto 2rem; }
+        .intro-icon.purple { background: linear-gradient(135deg, #7048E8, #9775FA); color: white; }
+        .intro-icon.red    { background: linear-gradient(135deg, #C92A2A, #FF6B6B); color: white; }
 
-        .btn-start {
-            background:var(--secondary); color:white; padding:.9rem 2.5rem;
-            font-size:1.05rem; font-weight:700; border:none; border-radius:50px;
-            cursor:pointer; transition:.3s; box-shadow:0 8px 20px rgba(236,72,153,.3);
-            display:inline-flex; align-items:center; gap:8px;
+        .intro-title {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem;
+            font-weight: 700; color: var(--navy); margin-bottom: .6rem; text-align: center;
         }
-        .btn-start:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(236,72,153,.4); }
-        .btn-start.primary { background:var(--primary); box-shadow:0 8px 20px rgba(79,70,229,.3); }
-        .btn-start.primary:hover { box-shadow:0 12px 28px rgba(79,70,229,.4); }
-        .btn-start.danger { background:var(--danger); box-shadow:0 8px 20px rgba(239,68,68,.3); }
-        .btn-start.danger:hover { box-shadow:0 12px 28px rgba(239,68,68,.4); }
+        .intro-desc { color: var(--muted); text-align: center; max-width: 480px; margin: 0 auto 2rem; font-size: .95rem; }
 
-        /* Progress + score */
-        .g-header {
-            display:flex; justify-content:space-between; align-items:center;
-            margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:2px solid var(--bg);
+        .chip-row { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+        .chip {
+            display: flex; align-items: center; gap: 6px;
+            background: var(--bg); border: 1px solid var(--border);
+            padding: .45rem 1rem; border-radius: 50px; font-size: .82rem; font-weight: 600; color: var(--muted);
         }
-        .g-progress-wrap { flex:1; background:var(--bg); border-radius:99px; height:8px; margin:0 1rem; overflow:hidden; }
-        .g-progress-bar { height:100%; background:linear-gradient(90deg,var(--primary),var(--primary-light)); border-radius:99px; transition:width .4s; }
-        .g-badge { font-size:.85rem; font-weight:700; background:var(--primary-bg); color:var(--primary); padding:.35rem .9rem; border-radius:50px; }
-        .g-score { font-size:1.05rem; font-weight:700; color:var(--primary); }
+        .chip i { color: var(--blue); }
 
-        .q-text { font-size:1.3rem; font-family:'Quicksand',sans-serif; font-weight:700; margin-bottom:1.8rem; color:var(--text); line-height:1.5; }
-        .options-grid { display:grid; gap:.75rem; }
+        .btn-play {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: .9rem 2.2rem; border-radius: 50px; border: none;
+            font-size: 1rem; font-weight: 700; cursor: pointer; transition: all .25s;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .btn-play.blue { background: linear-gradient(135deg, var(--blue), var(--blue-lt)); color: white; box-shadow: 0 8px 24px rgba(59,91,219,.35); }
+        .btn-play.blue:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(59,91,219,.45); }
+        .btn-play.red  { background: linear-gradient(135deg, var(--red), var(--red-lt)); color: white; box-shadow: 0 8px 24px rgba(201,42,42,.35); }
+        .btn-play.red:hover  { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,42,42,.45); }
+        .btn-play.sm { padding: .65rem 1.4rem; font-size: .88rem; }
+
+        /* Quiz progress */
+        .quiz-header {
+            display: flex; align-items: center; gap: 1rem;
+            margin-bottom: 2rem; padding-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .q-badge {
+            background: var(--navy); color: white;
+            padding: .35rem .9rem; border-radius: 50px; font-size: .8rem; font-weight: 700;
+            white-space: nowrap; flex-shrink: 0;
+        }
+        .prog-track {
+            flex: 1; height: 6px; background: var(--bg);
+            border-radius: 99px; overflow: hidden;
+        }
+        .prog-fill {
+            height: 100%; border-radius: 99px;
+            background: linear-gradient(90deg, var(--blue), var(--blue-lt));
+            transition: width .4s cubic-bezier(.4,0,.2,1);
+        }
+        .score-pill {
+            display: flex; align-items: center; gap: 5px;
+            background: var(--bg); border: 1px solid var(--border);
+            padding: .35rem .9rem; border-radius: 50px; font-size: .85rem; font-weight: 700;
+            color: var(--gold); white-space: nowrap; flex-shrink: 0;
+        }
+
+        /* Question */
+        .q-label { font-size: .78rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 1px; margin-bottom: .6rem; }
+        .q-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; font-weight: 700; color: var(--navy);
+            margin-bottom: 1.6rem; line-height: 1.5;
+        }
+
+        .opts { display: flex; flex-direction: column; gap: .7rem; }
         .opt-btn {
-            background:var(--bg); border:2px solid var(--border); padding:.9rem 1.3rem;
-            border-radius:12px; font-size:1rem; color:var(--text); cursor:pointer;
-            transition:.2s; text-align:left; display:flex; align-items:center; gap:12px;
-            font-family:'Outfit',sans-serif; font-weight:500;
+            background: var(--bg); border: 2px solid var(--border);
+            border-radius: 12px; padding: .9rem 1.2rem;
+            display: flex; align-items: center; gap: 12px;
+            cursor: pointer; transition: all .18s; text-align: left;
+            font-family: 'Be Vietnam Pro', sans-serif; font-size: .93rem;
+            font-weight: 500; color: var(--text);
         }
-        .opt-btn .opt-letter {
-            width:32px; height:32px; border-radius:8px; background:var(--border);
-            display:inline-flex; align-items:center; justify-content:center;
-            font-size:.85rem; font-weight:700; flex-shrink:0; transition:.2s;
+        .opt-key {
+            width: 30px; height: 30px; flex-shrink: 0;
+            border-radius: 8px; background: var(--border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: .78rem; font-weight: 800; color: var(--muted);
+            transition: all .18s;
         }
-        .opt-btn:hover:not(:disabled) { background:var(--primary-bg); border-color:var(--primary-light); }
-        .opt-btn:hover:not(:disabled) .opt-letter { background:var(--primary); color:white; }
-        .opt-btn.correct { background:var(--success-bg); border-color:var(--success); color:#065F46; }
-        .opt-btn.correct .opt-letter { background:var(--success); color:white; }
-        .opt-btn.wrong { background:var(--danger-bg); border-color:var(--danger); color:#991B1B; }
-        .opt-btn.wrong .opt-letter { background:var(--danger); color:white; }
+        .opt-btn:hover:not(:disabled) {
+            background: #EDF2FF; border-color: var(--blue-lt);
+        }
+        .opt-btn:hover:not(:disabled) .opt-key {
+            background: var(--blue); color: white;
+        }
+        .opt-btn.correct {
+            background: #EBFBEE; border-color: var(--green-lt);
+            color: var(--green);
+        }
+        .opt-btn.correct .opt-key { background: var(--green); color: white; }
+        .opt-btn.wrong {
+            background: #FFF5F5; border-color: var(--red-lt);
+            color: var(--red);
+        }
+        .opt-btn.wrong .opt-key { background: var(--red); color: white; }
 
-        .feedback-box {
-            margin-top:1.2rem; padding:1rem 1.4rem; border-radius:12px;
-            font-size:.9rem; text-align:left; font-weight:500; display:none;
+        /* Feedback */
+        .feedback {
+            margin-top: 1.2rem; padding: 1rem 1.3rem; border-radius: 12px;
+            font-size: .88rem; line-height: 1.6; font-weight: 500; display: none;
         }
-        .feedback-box.show { display:block; animation:fadeIn .25s; }
-        .feedback-box.ok { background:var(--success-bg); color:#065F46; }
-        .feedback-box.no { background:var(--danger-bg); color:#991B1B; }
+        .feedback.show { display: block; animation: fadeUp .2s; }
+        .feedback.ok { background: #EBFBEE; color: #1A5C2A; border-left: 4px solid var(--green); }
+        .feedback.no { background: #FFF5F5; color: #7B1A1A; border-left: 4px solid var(--red); }
+
         .btn-next {
-            margin-top:1.2rem; background:var(--primary); color:white; border:none;
-            padding:.75rem 2rem; border-radius:50px; font-size:1rem; font-weight:700;
-            cursor:pointer; transition:.2s; display:none;
+            display: none; margin-top: 1.2rem;
+            background: var(--navy); color: white; border: none;
+            padding: .75rem 1.8rem; border-radius: 50px; font-size: .9rem; font-weight: 700;
+            cursor: pointer; transition: all .2s; font-family: 'Be Vietnam Pro', sans-serif;
         }
-        .btn-next.show { display:inline-block; animation:fadeIn .3s; }
-        .btn-next:hover { opacity:.9; transform:translateY(-2px); }
+        .btn-next.show { display: inline-flex; align-items: center; gap: 6px; animation: fadeUp .25s; }
+        .btn-next:hover { background: var(--indigo); transform: translateY(-1px); }
 
         /* Result */
-        .result-panel { text-align:center; }
-        .result-circle {
-            width:120px; height:120px; border-radius:50%; margin:0 auto 1.5rem;
-            display:flex; align-items:center; justify-content:center; flex-direction:column;
-            background:linear-gradient(135deg,var(--primary),var(--secondary));
+        .result-wrap { text-align: center; }
+        .result-donut {
+            width: 130px; height: 130px; border-radius: 50%;
+            background: conic-gradient(var(--blue) 0%, var(--blue-lt) var(--pct), var(--bg) var(--pct));
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem; position: relative;
         }
-        .result-circle .score-num { font-size:2.2rem; font-weight:800; color:white; line-height:1; }
-        .result-circle .score-total { font-size:.9rem; color:rgba(255,255,255,.8); }
-        .result-panel h2 { font-family:'Quicksand',sans-serif; font-size:1.6rem; margin-bottom:.5rem; }
-        .result-panel p { color:var(--muted); margin-bottom:1.5rem; }
-        .result-grade {
-            display:inline-block; padding:.4rem 1.2rem; border-radius:50px;
-            font-size:1rem; font-weight:700; margin-bottom:1.5rem;
+        .result-donut::before {
+            content: ''; position: absolute; inset: 12px;
+            background: var(--surface); border-radius: 50%;
         }
+        .result-inner { position: relative; z-index: 1; }
+        .result-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--navy); line-height: 1; }
+        .result-den { font-size: .8rem; color: var(--muted); }
+        .result-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
+        .result-badge {
+            display: inline-block; padding: .4rem 1.2rem; border-radius: 50px;
+            font-size: .9rem; font-weight: 700; margin: .6rem 0 1rem;
+        }
+        .result-msg { color: var(--muted); margin-bottom: 1.8rem; font-size: .93rem; }
 
-        /* ── MATCHING GAME ── */
-        .match-wrap { max-width:960px; margin:0 auto; }
-        .match-instructions { color:var(--muted); margin-bottom:1.5rem; font-size:.95rem; }
-        .match-score-bar {
-            display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;
-            background:var(--bg); padding:.8rem 1.5rem; border-radius:12px;
+        /* ── MATCHING ── */
+        .match-wrap { max-width: 1000px; margin: 0 auto; }
+        .match-topbar {
+            display: flex; align-items: center; gap: 1rem;
+            background: var(--surface); border-radius: 12px; padding: .9rem 1.4rem;
+            border: 1px solid var(--border); margin-bottom: 1.5rem; box-shadow: var(--shadow);
         }
-        .match-score-bar span { font-weight:700; color:var(--primary); }
-        .match-container { display:flex; gap:1.5rem; }
-        .match-col { flex:1; display:flex; flex-direction:column; gap:.75rem; }
-        .match-col-label { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:.3rem; }
-        .match-item {
-            background:var(--surface); border:2px solid var(--border); padding:1.1rem 1.3rem;
-            border-radius:12px; cursor:pointer; text-align:center; font-weight:600;
-            font-size:.92rem; transition:.2s; box-shadow:var(--shadow-sm);
+        .match-topbar .score-text { font-weight: 700; color: var(--navy); }
+        .match-topbar .score-num { color: var(--blue); font-size: 1.1rem; }
+        .match-restart {
+            margin-left: auto; background: none; border: 1px solid var(--border);
+            padding: .4rem .9rem; border-radius: 50px; cursor: pointer;
+            font-size: .8rem; font-weight: 600; color: var(--muted);
+            font-family: 'Be Vietnam Pro', sans-serif; transition: all .2s;
         }
-        .match-item:hover:not(.matched) { border-color:var(--primary); color:var(--primary); transform:translateY(-2px); }
-        .match-item.selected { background:var(--primary); color:white; border-color:var(--primary); transform:scale(1.03); }
-        .match-item.matched { background:var(--success-bg); color:#065F46; border-color:var(--success); opacity:.85; pointer-events:none; }
-        .match-item.wrong-anim { animation:shake .4s; background:var(--danger-bg); color:#991B1B; border-color:var(--danger); }
+        .match-restart:hover { border-color: var(--blue); color: var(--blue); }
+
+        .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .match-col-title { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: .6rem; display: flex; align-items: center; gap: 6px; }
+        .match-col-inner { display: flex; flex-direction: column; gap: .65rem; }
+
+        .mi {
+            background: var(--surface); border: 2px solid var(--border);
+            border-radius: 12px; padding: 1rem 1.2rem;
+            cursor: pointer; font-size: .87rem; font-weight: 500; line-height: 1.45;
+            transition: all .2s; box-shadow: var(--shadow);
+        }
+        .mi:hover:not(.matched) { border-color: var(--blue-lt); color: var(--blue); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59,91,219,.12); }
+        .mi.selected { background: var(--blue); color: white; border-color: var(--blue); transform: scale(1.02); box-shadow: 0 8px 24px rgba(59,91,219,.3); }
+        .mi.matched { background: #EBFBEE; color: var(--green); border-color: var(--green-lt); cursor: default; opacity: .8; }
+        .mi.shake { animation: shake .4s; border-color: var(--red-lt); background: #FFF5F5; color: var(--red); }
         @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+
         .match-win {
-            display:none; margin-top:2rem; text-align:center; padding:1.5rem;
-            background:var(--success-bg); border-radius:var(--radius);
+            display: none; text-align: center; padding: 2rem;
+            background: linear-gradient(135deg, #EBFBEE, #D3F9D8);
+            border-radius: var(--radius); margin-top: 2rem; border: 2px solid var(--green-lt);
         }
-        .match-win h3 { color:#047857; font-size:1.4rem; font-family:'Quicksand',sans-serif; margin-bottom:1rem; }
+        .match-win h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--green); margin-bottom: 1rem; }
 
         /* ── TRUE FALSE ── */
-        .tf-wrap { max-width:700px; margin:0 auto; }
-        .timer-bar { height:10px; background:var(--bg); border-radius:99px; overflow:hidden; margin-bottom:1.2rem; }
-        .timer-fill { height:100%; background:linear-gradient(90deg,var(--danger),var(--secondary)); border-radius:99px; width:100%; transition:width 1s linear; }
-        .tf-stats { display:flex; justify-content:space-between; margin-bottom:1rem; font-weight:700; color:var(--muted); font-size:.95rem; }
-        .tf-card {
-            background:linear-gradient(135deg,#F8FAFC,#E2E8F0);
-            padding:3rem 2rem; border-radius:20px; margin-bottom:1.5rem;
-            border:1px solid var(--border); min-height:160px; display:flex; align-items:center; justify-content:center;
-        }
-        .tf-statement { font-size:1.5rem; font-family:'Quicksand',sans-serif; font-weight:700; color:var(--primary); text-align:center; }
-        .tf-actions { display:flex; justify-content:center; gap:2rem; }
-        .tf-btn {
-            width:90px; height:90px; border-radius:50%; border:none;
-            font-size:1.8rem; color:white; cursor:pointer; transition:.2s;
-            box-shadow:0 8px 20px rgba(0,0,0,.12); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
-        }
-        .tf-btn span { font-size:.65rem; font-weight:700; letter-spacing:.5px; }
-        .tf-btn.true { background:var(--success); }
-        .tf-btn.false { background:var(--danger); }
-        .tf-btn:hover { transform:scale(1.12); box-shadow:0 12px 28px rgba(0,0,0,.18); }
-        .tf-btn:active { transform:scale(.96); }
-        .tf-feedback {
-            text-align:center; padding:.8rem 1.2rem; border-radius:12px; font-weight:700;
-            margin-top:.75rem; font-size:1rem; display:none;
-        }
-        .tf-feedback.show { display:block; animation:fadeIn .2s; }
-        .tf-feedback.ok { background:var(--success-bg); color:#047857; }
-        .tf-feedback.no { background:var(--danger-bg); color:#B91C1C; }
+        .tf-card-wrap { max-width: 680px; margin: 0 auto; }
 
-        @media (max-width: 700px) {
-            .header h1 { font-size:1.8rem; }
-            .match-container { flex-direction:column; }
-            .nav-tabs { gap:.5rem; }
-            .tab-btn { padding:.6rem 1rem; font-size:.85rem; }
-            .game-panel { padding:1.5rem; }
-            .tf-statement { font-size:1.2rem; }
+        .timer-wrap { margin-bottom: 1rem; }
+        .timer-track { height: 8px; background: var(--bg); border-radius: 99px; overflow: hidden; border: 1px solid var(--border); }
+        .timer-fill {
+            height: 100%; border-radius: 99px;
+            background: linear-gradient(90deg, var(--red), var(--gold));
+            transition: width 1s linear;
+        }
+        .tf-meta { display: flex; justify-content: space-between; margin-bottom: 1.2rem; }
+        .tf-meta span { font-size: .85rem; font-weight: 700; color: var(--muted); }
+        .tf-meta span strong { color: var(--navy); }
+
+        .tf-statement-card {
+            background: linear-gradient(135deg, var(--navy), var(--indigo));
+            border-radius: 20px; padding: 2.5rem 2rem;
+            min-height: 150px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.2rem; position: relative; overflow: hidden;
+        }
+        .tf-statement-card::before {
+            content: '?'; position: absolute; right: 1.5rem; top: .5rem;
+            font-size: 6rem; font-family: 'Playfair Display', serif;
+            color: rgba(255,255,255,.06); line-height: 1;
+        }
+        .tf-statement {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; font-weight: 700; color: white;
+            text-align: center; line-height: 1.5; position: relative; z-index: 1;
+        }
+
+        .tf-feedback {
+            padding: .9rem 1.3rem; border-radius: 12px; font-size: .88rem;
+            font-weight: 500; line-height: 1.6; display: none;
+            margin-bottom: .8rem; border-left: 4px solid;
+        }
+        .tf-feedback.show { display: block; animation: fadeUp .2s; }
+        .tf-feedback.ok { background: #EBFBEE; color: #1A5C2A; border-color: var(--green); }
+        .tf-feedback.no { background: #FFF5F5; color: #7B1A1A; border-color: var(--red); }
+
+        .tf-btns { display: flex; justify-content: center; gap: 2rem; }
+        .tf-btn {
+            width: 96px; height: 96px; border-radius: 50%; border: none;
+            font-size: 1.8rem; color: white; cursor: pointer;
+            transition: all .2s; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 4px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.15);
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .tf-btn span { font-size: .62rem; font-weight: 800; letter-spacing: .5px; }
+        .tf-btn.t { background: linear-gradient(135deg, var(--green), var(--green-lt)); }
+        .tf-btn.f { background: linear-gradient(135deg, var(--red), var(--red-lt)); }
+        .tf-btn:hover { transform: scale(1.1); }
+        .tf-btn:active { transform: scale(.95); }
+
+        @media (max-width: 680px) {
+            .header h1 { font-size: 1.8rem; }
+            .match-grid { grid-template-columns: 1fr; }
+            .game-card { padding: 1.5rem; }
+            .tf-statement { font-size: 1.05rem; }
+            .tab-btn { font-size: .82rem; padding: .9rem 1rem; }
         }
     </style>
 </head>
 <body>
 
 <header class="header">
-    <div class="header-badge">MLN122 · KTCT MÁC – LÊNIN</div>
-    <h1><i class="fas fa-landmark" style="margin-right:.5rem;opacity:.85;"></i>Bản Chất Độc Quyền Tư Bản</h1>
-    <p>Trung tâm học tập tương tác – Kiến thức Chương 4: Cạnh tranh và Độc quyền trong nền kinh tế thị trường. Biến lý luận Lênin thành trải nghiệm cuốn hút.</p>
+    <div class="header-inner">
+        <div class="header-badge"><i class="fas fa-landmark"></i> MLN122 · KTCT MÁC – LÊNIN</div>
+        <h1>Bản Chất Độc Quyền Tư Bản</h1>
+        <p>Trung tâm học tập tương tác – Chương 4: Cạnh tranh và Độc quyền trong nền kinh tế thị trường. Biến lý luận Lênin thành trải nghiệm cuốn hút.</p>
+    </div>
 </header>
 
-<nav class="nav-tabs">
-    <button class="tab-btn active" onclick="openTab('info',this)"><i class="fas fa-map"></i> Infographic</button>
-    <button class="tab-btn" onclick="openTab('game1',this)"><i class="fas fa-brain"></i> Trắc Nghiệm 20 Câu</button>
-    <button class="tab-btn" onclick="openTab('game2',this)"><i class="fas fa-link"></i> Nối Khái Niệm</button>
-    <button class="tab-btn" onclick="openTab('game3',this)"><i class="fas fa-bolt"></i> Đúng Sai Tốc Chiến</button>
-</nav>
+<div class="nav-wrap">
+    <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="openTab('info',this)"><i class="fas fa-layer-group"></i> Infographic</button>
+        <button class="tab-btn" onclick="openTab('game1',this)"><i class="fas fa-brain"></i> Trắc Nghiệm 20 Câu</button>
+        <button class="tab-btn" onclick="openTab('game2',this)"><i class="fas fa-link"></i> Nối Khái Niệm</button>
+        <button class="tab-btn" onclick="openTab('game3',this)"><i class="fas fa-bolt"></i> Đúng Sai Tốc Chiến</button>
+    </nav>
+</div>
 
 <div class="container">
 
-    <!-- ================= INFOGRAPHIC ================= -->
+    <!-- =============== INFOGRAPHIC =============== -->
     <div id="info" class="section-view active">
-        <h2 class="sec-title">5 Đặc Điểm Kinh Tế Cơ Bản Của Chủ Nghĩa Đế Quốc</h2>
-        <p class="sec-sub">Theo V.I. Lênin – <em>Chủ nghĩa đế quốc, giai đoạn tột cùng của chủ nghĩa tư bản</em></p>
+        <div class="sec-head">
+            <h2>5 Đặc Điểm Kinh Tế Cơ Bản của Chủ Nghĩa Đế Quốc</h2>
+            <p>Theo V.I. Lênin – <em>Chủ nghĩa đế quốc, giai đoạn tột cùng của chủ nghĩa tư bản</em></p>
+        </div>
 
         <div class="info-grid">
-            <!-- Đặc điểm 1 -->
-            <div class="card c-blue">
-                <div class="card-accent"></div>
-                <span class="char-number">①</span>
-                <div class="card-icon"><i class="fas fa-industry"></i></div>
-                <span class="badge-chip">Đặc điểm 1</span>
+            <div class="card t-blue">
+                <div class="card-stripe"></div>
+                <span class="card-num">①</span>
+                <div class="card-icon-box"><i class="fas fa-industry"></i></div>
+                <span class="card-tag">Đặc điểm 1</span>
                 <h3>Tập Trung Sản Xuất Và Độc Quyền</h3>
                 <p>Sức ép cạnh tranh khiến xí nghiệp nhỏ phá sản, sản xuất bị thâu tóm vào tay các tập đoàn khổng lồ, hình thành <strong>liên minh độc quyền</strong>:</p>
                 <ul>
                     <li><strong>Cartel</strong>: Thỏa thuận giá, sản lượng – vẫn độc lập sản xuất & lưu thông.</li>
                     <li><strong>Syndicate</strong>: Thống nhất mua–bán, mất tự do lưu thông.</li>
                     <li><strong>Trust</strong>: Sáp nhập cả sản xuất lẫn tiêu thụ hoàn toàn.</li>
-                    <li><strong>Consortium</strong>: Đa ngành, quy mô lớn nhất, lệ thuộc tài chính vào một nhóm tư bản.</li>
+                    <li><strong>Consortium</strong>: Đa ngành, quy mô lớn nhất, lệ thuộc tài chính.</li>
                 </ul>
             </div>
 
-            <!-- Đặc điểm 2 -->
-            <div class="card c-violet">
-                <div class="card-accent"></div>
-                <span class="char-number">②</span>
-                <div class="card-icon"><i class="fas fa-university"></i></div>
-                <span class="badge-chip">Đặc điểm 2</span>
+            <div class="card t-violet">
+                <div class="card-stripe"></div>
+                <span class="card-num">②</span>
+                <div class="card-icon-box"><i class="fas fa-university"></i></div>
+                <span class="card-tag">Đặc điểm 2</span>
                 <h3>Tư Bản Tài Chính Và Đầu Sỏ Tài Chính</h3>
-                <p>Độc quyền ngân hàng dung hợp với độc quyền công nghiệp → <strong>Tư bản tài chính</strong>. Nhóm <strong>đầu sỏ tài chính</strong> (tài phiệt) chi phối toàn bộ kinh tế–chính trị qua:</p>
+                <p>Độc quyền ngân hàng dung hợp với độc quyền công nghiệp → <strong>Tư bản tài chính</strong>. Nhóm <strong>đầu sỏ tài chính</strong> chi phối kinh tế–chính trị qua:</p>
                 <ul>
-                    <li><strong>Chế độ tham dự</strong>: Mua cổ phần khống chế "công ty mẹ" → chi phối dây chuyền "công ty con", "công ty cháu".</li>
+                    <li><strong>Chế độ tham dự</strong>: Mua cổ phần khống chế "công ty mẹ" → chi phối dây chuyền "công ty con", "cháu".</li>
                     <li>Nắm chính phủ: "Hôm nay bộ trưởng, ngày mai chủ ngân hàng."</li>
                 </ul>
             </div>
 
-            <!-- Đặc điểm 3 -->
-            <div class="card c-green">
-                <div class="card-accent"></div>
-                <span class="char-number">③</span>
-                <div class="card-icon"><i class="fas fa-ship"></i></div>
-                <span class="badge-chip">Đặc điểm 3</span>
+            <div class="card t-teal">
+                <div class="card-stripe"></div>
+                <span class="card-num">③</span>
+                <div class="card-icon-box"><i class="fas fa-ship"></i></div>
+                <span class="card-tag">Đặc điểm 3</span>
                 <h3>Xuất Khẩu Tư Bản</h3>
-                <p>Khác với xuất khẩu hàng hóa thời kỳ trước, chủ nghĩa đế quốc <strong>xuất khẩu tư bản</strong> – đưa vốn đầu tư ra nước ngoài để bóc lột lao động và nguyên liệu rẻ:</p>
+                <p>Chủ nghĩa đế quốc <strong>xuất khẩu tư bản</strong> – đưa vốn ra nước ngoài để bóc lột lao động và nguyên liệu rẻ:</p>
                 <ul>
                     <li><strong>Đầu tư trực tiếp (FDI)</strong>: Xây xí nghiệp, thâu tóm doanh nghiệp nước ngoài.</li>
                     <li><strong>Đầu tư gián tiếp</strong>: Cho vay, mua cổ phiếu, trái phiếu.</li>
                 </ul>
             </div>
 
-            <!-- Đặc điểm 4 -->
-            <div class="card c-amber">
-                <div class="card-accent"></div>
-                <span class="char-number">④</span>
-                <div class="card-icon"><i class="fas fa-globe-asia"></i></div>
-                <span class="badge-chip">Đặc điểm 4</span>
+            <div class="card t-amber">
+                <div class="card-stripe"></div>
+                <span class="card-num">④</span>
+                <div class="card-icon-box"><i class="fas fa-globe-asia"></i></div>
+                <span class="card-tag">Đặc điểm 4</span>
                 <h3>Phân Chia Thế Giới Về Kinh Tế</h3>
-                <p>Các tập đoàn độc quyền cạnh tranh chiếm lĩnh thị trường thế giới, tất yếu dẫn đến <strong>ký kết các hiệp ước phân chia</strong> nhau về thị trường, nguồn nguyên liệu, lĩnh vực đầu tư.</p>
-                <p>→ Hình thành các liên minh độc quyền <em>quốc tế</em>: cartel, syndicate, trust quốc tế.</p>
+                <p>Các tập đoàn ĐQ tất yếu <strong>ký kết hiệp ước phân chia</strong> thị trường, nguồn nguyên liệu, lĩnh vực đầu tư.</p>
+                <p style="margin-top:.5rem;">→ Hình thành các liên minh ĐQ <em>quốc tế</em>: cartel, syndicate, trust quốc tế.</p>
             </div>
 
-            <!-- Đặc điểm 5 -->
-            <div class="card c-red">
-                <div class="card-accent"></div>
-                <span class="char-number">⑤</span>
-                <div class="card-icon"><i class="fas fa-flag"></i></div>
-                <span class="badge-chip">Đặc điểm 5</span>
+            <div class="card t-red">
+                <div class="card-stripe"></div>
+                <span class="card-num">⑤</span>
+                <div class="card-icon-box"><i class="fas fa-flag"></i></div>
+                <span class="card-tag">Đặc điểm 5</span>
                 <h3>Phân Chia Lãnh Thổ Thế Giới</h3>
-                <p>Các cường quốc tư bản dùng <strong>sức mạnh chính trị và quân sự</strong> để tranh giành thuộc địa, phân chia lãnh thổ – bảo vệ lợi ích độc quyền:</p>
+                <p>Các cường quốc dùng <strong>sức mạnh chính trị–quân sự</strong> tranh giành thuộc địa, bảo vệ lợi ích ĐQ:</p>
                 <ul>
-                    <li>Nguyên nhân gốc rễ của các cuộc chiến tranh thế giới.</li>
-                    <li>Sau CTTG II: Chuyển sang <em>chủ nghĩa thực dân mới</em> (viện trợ, nợ, quân sự).</li>
+                    <li>Nguyên nhân gốc rễ các cuộc chiến tranh thế giới.</li>
+                    <li>Sau CTTG II: chuyển sang <em>chủ nghĩa thực dân mới</em>.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Case Study + Tại sao độc quyền -->
         <div class="case-card">
             <div class="case-left">
-                <h3 style="font-family:'Quicksand',sans-serif; font-size:1.5rem; color:var(--secondary); margin-bottom:.75rem;">Tại Sao Doanh Nghiệp Khao Khát Trở Thành Độc Quyền?</h3>
-                <p style="color:var(--muted); margin-bottom:.8rem;"><strong>Bản chất:</strong> Cạnh tranh bào mòn lợi nhuận và mang nguy cơ phá sản. Nắm độc quyền là con đường để:</p>
-                <ol style="padding-left:1.4rem; color:var(--muted);">
-                    <li style="margin-bottom:.5rem;"><strong>Tối đa hóa lợi nhuận</strong>: Áp đặt <em>giá cả độc quyền cao</em> khi bán, <em>giá cả độc quyền thấp</em> khi mua nguyên liệu.</li>
-                    <li style="margin-bottom:.5rem;"><strong>Loại bỏ rủi ro cạnh tranh</strong>: Bóp nghẹt đối thủ, chiếm lĩnh thị trường tuyệt đối.</li>
+                <h3>Tại Sao Doanh Nghiệp Khao Khát Trở Thành Độc Quyền?</h3>
+                <p style="margin-bottom:.7rem;"><strong>Bản chất:</strong> Cạnh tranh bào mòn lợi nhuận và mang nguy cơ phá sản. Nắm ĐQ là con đường để:</p>
+                <ol>
+                    <li style="margin-bottom:.4rem;"><strong>Tối đa hóa lợi nhuận</strong>: Áp đặt <em>giá cả ĐQ cao</em> khi bán, <em>giá cả ĐQ thấp</em> khi mua nguyên liệu.</li>
+                    <li><strong>Loại bỏ rủi ro cạnh tranh</strong>: Bóp nghẹt đối thủ, chiếm lĩnh thị trường tuyệt đối.</li>
                 </ol>
             </div>
             <div class="case-right">
                 <h4><i class="fas fa-search-plus" style="margin-right:6px;"></i>Case Study: Grab thâu tóm Uber ĐNA</h4>
-                <p style="font-size:.9rem; color:#7C3D66;">Sau cuộc chiến "đốt tiền" tranh khách, Grab mua lại Uber tại Đông Nam Á → <strong>tập trung sản xuất, hình thành độc quyền</strong>. Không còn đối thủ, Grab liên tục tăng chiết khấu tài xế và giá cước – thu <em>lợi nhuận độc quyền cao</em>. Đây là minh chứng sống cho quy luật Lênin: tự do cạnh tranh tất yếu đẻ ra độc quyền.</p>
+                <p>Sau cuộc chiến "đốt tiền" tranh khách, Grab mua lại Uber tại Đông Nam Á → <strong>tập trung sản xuất, hình thành độc quyền</strong>. Không còn đối thủ, Grab liên tục tăng chiết khấu tài xế và giá cước – đây là minh chứng sống cho quy luật Lênin: <em>tự do cạnh tranh tất yếu đẻ ra độc quyền</em>.</p>
             </div>
         </div>
 
-        <!-- Độc quyền Nhà nước tóm tắt -->
         <div class="summary-box">
             <h3><i class="fas fa-landmark" style="margin-right:8px;"></i>Độc Quyền Nhà Nước – 3 Đặc Trưng Kinh Tế Chủ Yếu</h3>
             <ol>
-                <li><strong>Kết hợp nhân sự</strong>: Đại diện tổ chức độc quyền vào bộ máy nhà nước và ngược lại – "Hôm nay bộ trưởng, ngày mai chủ ngân hàng."</li>
-                <li><strong>Hình thành sở hữu nhà nước</strong>: Quốc hữu hóa, xây dựng DNNN, mua cổ phần để nắm lĩnh vực then chốt (điện, giao thông, viễn thông...).</li>
-                <li><strong>Điều tiết kinh tế</strong>: Nhà nước dùng ngân sách, thuế, tín dụng, DNNN, pháp luật điều tiết toàn bộ tái sản xuất xã hội phục vụ lợi ích tư bản độc quyền.</li>
+                <li><strong>Kết hợp nhân sự</strong>: Đại diện tổ chức ĐQ vào bộ máy nhà nước và ngược lại – <em>"Hôm nay bộ trưởng, ngày mai chủ ngân hàng."</em></li>
+                <li><strong>Hình thành sở hữu nhà nước</strong>: Quốc hữu hóa, xây dựng DNNN, mua cổ phần để nắm lĩnh vực then chốt.</li>
+                <li><strong>Điều tiết kinh tế</strong>: Dùng ngân sách, thuế, tín dụng, DNNN, pháp luật điều tiết toàn bộ tái sản xuất xã hội phục vụ lợi ích tư bản ĐQ.</li>
             </ol>
         </div>
     </div>
 
-    <!-- ================= GAME 1: 20 QUIZ ================= -->
+    <!-- =============== GAME 1: QUIZ =============== -->
     <div id="game1" class="section-view">
-        <div class="game-panel">
+        <div class="game-wrap">
             <!-- Intro -->
-            <div id="g1-intro" class="start-overlay">
-                <div class="icon-wrap" style="background:var(--primary-bg);color:var(--primary);"><i class="fas fa-brain"></i></div>
-                <h2>Trắc Nghiệm Tổng Hợp</h2>
-                <p>20 câu hỏi từ cơ bản đến nâng cao, kiểm tra toàn bộ kiến thức Chương 4. Mỗi câu có giải thích sau khi trả lời.</p>
-                <button class="btn-start primary" onclick="startG1()"><i class="fas fa-play"></i> Bắt Đầu Thi</button>
+            <div id="g1-intro" class="game-card" style="text-align:center;">
+                <div class="intro-icon purple"><i class="fas fa-brain"></i></div>
+                <div class="intro-title">Trắc Nghiệm Tổng Hợp</div>
+                <p class="intro-desc">20 câu hỏi xáo trộn ngẫu nhiên, kiểm tra toàn bộ kiến thức Chương 4. Sau mỗi câu có giải thích chi tiết.</p>
+                <div class="chip-row">
+                    <span class="chip"><i class="fas fa-list-ol"></i> 20 câu hỏi</span>
+                    <span class="chip"><i class="fas fa-shuffle"></i> Xáo trộn ngẫu nhiên</span>
+                    <span class="chip"><i class="fas fa-comment-dots"></i> Có giải thích</span>
+                </div>
+                <button class="btn-play blue" onclick="startG1()"><i class="fas fa-play"></i> Bắt Đầu Thi</button>
             </div>
 
             <!-- Play -->
-            <div id="g1-play" style="display:none;">
-                <div class="g-header">
-                    <span class="g-badge">Câu <span id="g1-curr">1</span>/20</span>
-                    <div class="g-progress-wrap"><div class="g-progress-bar" id="g1-prog" style="width:5%;"></div></div>
-                    <span class="g-score">⭐ <span id="g1-score">0</span></span>
+            <div id="g1-play" class="game-card" style="display:none;">
+                <div class="quiz-header">
+                    <span class="q-badge">Câu <span id="g1-curr">1</span> / 20</span>
+                    <div class="prog-track"><div class="prog-fill" id="g1-prog" style="width:0%"></div></div>
+                    <span class="score-pill"><i class="fas fa-star"></i> <span id="g1-score">0</span></span>
                 </div>
-                <h3 class="q-text" id="g1-qtext"></h3>
-                <div class="options-grid" id="g1-options"></div>
-                <div class="feedback-box" id="g1-feedback"></div>
-                <button class="btn-next" id="g1-next" onclick="nextQ1()">Câu tiếp theo <i class="fas fa-arrow-right"></i></button>
+                <div class="q-label">Câu hỏi</div>
+                <div class="q-text" id="g1-qtext"></div>
+                <div class="opts" id="g1-opts"></div>
+                <div class="feedback" id="g1-fb"></div>
+                <button class="btn-next" id="g1-next" onclick="nextQ1()">Câu tiếp <i class="fas fa-arrow-right"></i></button>
             </div>
 
             <!-- Result -->
-            <div id="g1-result" style="display:none;" class="result-panel">
-                <div class="result-circle">
-                    <span class="score-num" id="g1-final">0</span>
-                    <span class="score-total">/20</span>
+            <div id="g1-result" class="game-card" style="display:none;">
+                <div class="result-wrap">
+                    <div class="result-donut" id="g1-donut">
+                        <div class="result-inner">
+                            <div class="result-num" id="g1-final">0</div>
+                            <div class="result-den">/20</div>
+                        </div>
+                    </div>
+                    <div class="result-title">Hoàn Thành Bài Thi!</div>
+                    <div class="result-badge" id="g1-grade"></div>
+                    <p class="result-msg" id="g1-msg"></p>
+                    <button class="btn-play blue" onclick="initG1()"><i class="fas fa-redo"></i> Làm Lại</button>
                 </div>
-                <h2>Hoàn Thành Bài Thi!</h2>
-                <div class="result-grade" id="g1-grade"></div>
-                <p id="g1-msg"></p>
-                <button class="btn-start primary" onclick="initG1()"><i class="fas fa-redo"></i> Làm Lại</button>
             </div>
         </div>
     </div>
 
-    <!-- ================= GAME 2: MATCHING ================= -->
+    <!-- =============== GAME 2: MATCHING =============== -->
     <div id="game2" class="section-view">
         <div class="match-wrap">
-            <h2 class="sec-title">Nối Ghép Khái Niệm</h2>
-            <p class="sec-sub" style="margin-bottom:1rem;">Bấm vào 1 khái niệm cột trái → bấm vào 1 định nghĩa cột phải để ghép cặp đúng.</p>
-            <div class="match-score-bar">
-                <i class="fas fa-trophy" style="color:var(--accent);"></i>
-                <span>Đã nối: <span id="m-count">0</span> / 7</span>
-                <button onclick="initG2()" style="margin-left:auto; background:var(--bg); border:1px solid var(--border); padding:.35rem .9rem; border-radius:50px; cursor:pointer; font-weight:600; font-size:.85rem; color:var(--muted);">↺ Chơi lại</button>
+            <div class="sec-head">
+                <h2>Nối Ghép Khái Niệm</h2>
+                <p>Bấm vào 1 khái niệm cột trái → bấm 1 định nghĩa cột phải để ghép cặp. Cặp đúng sẽ sáng lên xanh lá.</p>
             </div>
-            <div class="match-container">
-                <div class="match-col">
-                    <div class="match-col-label"><i class="fas fa-tag"></i> Khái niệm</div>
-                    <div id="m-terms"></div>
+            <div class="match-topbar">
+                <i class="fas fa-trophy" style="color:var(--gold);"></i>
+                <span class="score-text">Đã nối: <span class="score-num" id="m-count">0</span> / 7</span>
+                <button class="match-restart" onclick="initG2()"><i class="fas fa-redo"></i> Chơi lại</button>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-col-title"><i class="fas fa-tag"></i> Khái niệm</div>
+                    <div class="match-col-inner" id="m-terms"></div>
                 </div>
-                <div class="match-col">
-                    <div class="match-col-label"><i class="fas fa-align-left"></i> Định nghĩa</div>
-                    <div id="m-defs"></div>
+                <div>
+                    <div class="match-col-title"><i class="fas fa-align-left"></i> Định nghĩa</div>
+                    <div class="match-col-inner" id="m-defs"></div>
                 </div>
             </div>
             <div class="match-win" id="m-win">
                 <h3><i class="fas fa-check-circle"></i> Xuất sắc! Bạn đã ghép đúng tất cả 7 cặp!</h3>
-                <button class="btn-start primary" onclick="initG2()"><i class="fas fa-redo"></i> Chơi lại</button>
+                <button class="btn-play blue sm" onclick="initG2()"><i class="fas fa-redo"></i> Chơi lại</button>
             </div>
         </div>
     </div>
 
-    <!-- ================= GAME 3: TRUE/FALSE ================= -->
+    <!-- =============== GAME 3: TRUE/FALSE =============== -->
     <div id="game3" class="section-view">
-        <div class="tf-wrap">
-            <!-- Intro -->
-            <div id="g3-intro" class="game-panel start-overlay">
-                <div class="icon-wrap" style="background:var(--danger-bg);color:var(--danger);"><i class="fas fa-stopwatch"></i></div>
-                <h2>Đúng Sai Tốc Chiến</h2>
-                <p>10 mệnh đề liên tục, 30 giây. Phán đoán thật nhanh! Sau mỗi câu có giải thích ngắn để học thêm.</p>
-                <button class="btn-start danger" onclick="startG3()"><i class="fas fa-bolt"></i> Vào Cuộc Chiến</button>
-            </div>
-
-            <!-- Play -->
-            <div id="g3-play" class="game-panel" style="display:none;">
-                <div class="timer-bar"><div class="timer-fill" id="g3-timer"></div></div>
-                <div class="tf-stats">
-                    <span>Câu: <span id="g3-curr">1</span>/10</span>
-                    <span>Điểm: <span id="g3-score">0</span></span>
+        <!-- Intro -->
+        <div id="g3-intro" class="game-wrap">
+            <div class="game-card" style="text-align:center;">
+                <div class="intro-icon red"><i class="fas fa-stopwatch"></i></div>
+                <div class="intro-title">Đúng Sai Tốc Chiến</div>
+                <p class="intro-desc">10 mệnh đề liên tục với đồng hồ đếm ngược 30 giây. Phán đoán thật nhanh! Mỗi câu có giải thích ngắn.</p>
+                <div class="chip-row">
+                    <span class="chip"><i class="fas fa-clock"></i> 30 giây</span>
+                    <span class="chip"><i class="fas fa-list"></i> 10 mệnh đề</span>
+                    <span class="chip"><i class="fas fa-shuffle"></i> Xáo trộn</span>
                 </div>
-                <div class="tf-card"><div class="tf-statement" id="g3-text"></div></div>
+                <button class="btn-play red" onclick="startG3()"><i class="fas fa-bolt"></i> Vào Cuộc Chiến</button>
+            </div>
+        </div>
+
+        <!-- Play -->
+        <div id="g3-play" class="game-wrap" style="display:none;">
+            <div class="game-card tf-card-wrap">
+                <div class="timer-wrap">
+                    <div class="timer-track"><div class="timer-fill" id="g3-timer"></div></div>
+                </div>
+                <div class="tf-meta">
+                    <span>Câu: <strong id="g3-curr">1</strong>/10</span>
+                    <span>Điểm: <strong id="g3-score">0</strong></span>
+                </div>
+                <div class="tf-statement-card">
+                    <div class="tf-statement" id="g3-text"></div>
+                </div>
                 <div class="tf-feedback" id="g3-fb"></div>
-                <div class="tf-actions" style="margin-top:1.2rem;">
-                    <button class="tf-btn true" onclick="checkG3(true)">✔<span>ĐÚNG</span></button>
-                    <button class="tf-btn false" onclick="checkG3(false)">✘<span>SAI</span></button>
+                <div class="tf-btns">
+                    <button class="tf-btn t" onclick="checkG3(true)">✔<span>ĐÚNG</span></button>
+                    <button class="tf-btn f" onclick="checkG3(false)">✘<span>SAI</span></button>
                 </div>
             </div>
+        </div>
 
-            <!-- Result -->
-            <div id="g3-result" class="game-panel result-panel" style="display:none;">
-                <div class="result-circle">
-                    <span class="score-num" id="g3-final">0</span>
-                    <span class="score-total">/10</span>
+        <!-- Result -->
+        <div id="g3-result" class="game-wrap" style="display:none;">
+            <div class="game-card">
+                <div class="result-wrap">
+                    <div class="result-donut" id="g3-donut">
+                        <div class="result-inner">
+                            <div class="result-num" id="g3-final">0</div>
+                            <div class="result-den">/10</div>
+                        </div>
+                    </div>
+                    <div class="result-title">Kết Quả Tốc Chiến!</div>
+                    <div class="result-badge" id="g3-grade"></div>
+                    <p class="result-msg" id="g3-msg"></p>
+                    <button class="btn-play red" onclick="initG3()"><i class="fas fa-redo"></i> Chơi Lại</button>
                 </div>
-                <h2>Kết Quả Tốc Chiến!</h2>
-                <div class="result-grade" id="g3-grade"></div>
-                <p id="g3-msg"></p>
-                <button class="btn-start danger" onclick="initG3()"><i class="fas fa-redo"></i> Chơi Lại</button>
             </div>
         </div>
     </div>
-</div>
+
+</div><!-- /container -->
 
 <script>
-/* =========================================================
-   TAB NAVIGATION
-========================================================= */
+/* ── TAB ── */
 function openTab(id, btn) {
     document.querySelectorAll('.section-view').forEach(e => e.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(e => e.classList.remove('active'));
@@ -530,142 +740,254 @@ function openTab(id, btn) {
     btn.classList.add('active');
 }
 
-/* =========================================================
-   GAME 1 – 20 QUIZ  (chính xác theo giáo trình)
-========================================================= */
-const qData = [
+/* ══════════════════════════════════════════════
+   SHUFFLE UTILITY — Fisher-Yates
+══════════════════════════════════════════════ */
+function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+/* ══════════════════════════════════════════════
+   GAME 1 — 20 QUIZ  (xáo trộn câu & đáp án)
+══════════════════════════════════════════════ */
+
+// Dữ liệu gốc: mỗi câu có mảng options[] và correctText (text của đáp án đúng)
+// → khi load, ta shuffle options[] và tìm lại vị trí đáp án đúng theo correctText
+const qBank = [
     {
         q: "V.I. Lênin cho rằng tự do cạnh tranh tất yếu dẫn đến điều gì?",
-        o: ["Cân bằng thị trường hoàn hảo", "Tích tụ và tập trung sản xuất dẫn đến độc quyền", "Khủng hoảng kinh tế toàn cầu", "Liên minh kinh tế tự do"],
-        a: 1,
+        options: [
+            "Cân bằng thị trường hoàn hảo",
+            "Tích tụ và tập trung sản xuất dẫn đến độc quyền",
+            "Khủng hoảng kinh tế toàn cầu",
+            "Liên minh kinh tế tự do"
+        ],
+        correct: "Tích tụ và tập trung sản xuất dẫn đến độc quyền",
         explain: "Lênin khẳng định: 'Tự do cạnh tranh đẻ ra tập trung sản xuất và sự tập trung sản xuất này, khi phát triển tới mức độ nhất định, lại dẫn tới độc quyền.' (Toàn tập, t.27, tr.402)"
     },
     {
         q: "Hình thức tổ chức độc quyền nào thống nhất cả sản xuất VÀ tiêu thụ hàng hóa?",
-        o: ["Cartel", "Syndicate", "Trust", "Consortium"],
-        a: 2,
-        explain: "Trust: cả việc sản xuất và tiêu thụ đều do một ban quản trị chung thống nhất. Các xí nghiệp tham gia trở thành cổ đông hưởng lợi nhuận theo cổ phần."
+        options: ["Cartel", "Syndicate", "Trust", "Consortium"],
+        correct: "Trust",
+        explain: "Trust: cả sản xuất và tiêu thụ đều do một ban quản trị chung thống nhất. Các xí nghiệp tham gia trở thành cổ đông hưởng lợi nhuận theo cổ phần."
     },
     {
         q: "Cartel (Các-ten) có đặc điểm gì nổi bật?",
-        o: ["Thống nhất lưu thông, mất độc lập thương mại", "Thỏa thuận giá cả, sản lượng – vẫn độc lập cả sản xuất lẫn lưu thông", "Sáp nhập hoàn toàn cả nhà máy và cửa hàng", "Liên kết đa ngành lệ thuộc tài chính"],
-        a: 1,
+        options: [
+            "Thống nhất lưu thông, mất độc lập thương mại",
+            "Sáp nhập hoàn toàn cả nhà máy và cửa hàng",
+            "Thỏa thuận giá cả, sản lượng – vẫn độc lập cả sản xuất lẫn lưu thông",
+            "Liên kết đa ngành lệ thuộc tài chính"
+        ],
+        correct: "Thỏa thuận giá cả, sản lượng – vẫn độc lập cả sản xuất lẫn lưu thông",
         explain: "Cartel: các xí nghiệp ký hiệp nghị thỏa thuận giá cả, sản lượng, thị trường... nhưng vẫn độc lập hoàn toàn về sản xuất và lưu thông. Vì vậy cartel là liên minh không vững chắc."
     },
     {
         q: "Syndicate (Xanh-đi-ca) khác Cartel ở điểm cốt lõi nào?",
-        o: ["Mọi việc mua–bán do một ban quản trị chung đảm nhận", "Sáp nhập hoàn toàn cả sản xuất", "Chỉ hoạt động trong ngành ngân hàng", "Vẫn độc lập hoàn toàn cả sản xuất lẫn lưu thông"],
-        a: 0,
-        explain: "Syndicate: các xí nghiệp vẫn giữ độc lập về sản xuất, nhưng KHÔNG độc lập ở khâu lưu thông – mọi việc mua–bán do một ban quản trị chung đảm nhận để mua rẻ, bán đắt."
+        options: [
+            "Vẫn độc lập hoàn toàn cả sản xuất lẫn lưu thông",
+            "Chỉ hoạt động trong ngành ngân hàng",
+            "Sáp nhập hoàn toàn cả sản xuất",
+            "Mọi việc mua–bán do một ban quản trị chung đảm nhận"
+        ],
+        correct: "Mọi việc mua–bán do một ban quản trị chung đảm nhận",
+        explain: "Syndicate: vẫn giữ độc lập về sản xuất, nhưng KHÔNG độc lập ở khâu lưu thông – mọi việc mua–bán do một ban quản trị chung đảm nhận để mua rẻ, bán đắt."
     },
     {
         q: "Tư bản tài chính được hình thành từ sự kết hợp nào?",
-        o: ["Ngân sách nhà nước và doanh nghiệp tư nhân", "Tư bản ngân hàng độc quyền và tư bản công nghiệp độc quyền", "Vốn nước ngoài và vốn trong nước", "Tư bản thương nghiệp và tư bản nông nghiệp"],
-        a: 1,
+        options: [
+            "Vốn nước ngoài và vốn trong nước",
+            "Tư bản thương nghiệp và tư bản nông nghiệp",
+            "Ngân sách nhà nước và doanh nghiệp tư nhân",
+            "Tư bản ngân hàng độc quyền và tư bản công nghiệp độc quyền"
+        ],
+        correct: "Tư bản ngân hàng độc quyền và tư bản công nghiệp độc quyền",
         explain: "Lênin: 'Tư bản tài chính là kết quả của sự hợp nhất giữa tư bản ngân hàng của một số ít ngân hàng độc quyền lớn nhất với tư bản của những liên minh độc quyền các nhà công nghiệp.' (t.27, tr.489)"
     },
     {
         q: "Đầu sỏ tài chính khống chế mạng lưới công ty thông qua 'chế độ tham dự' nghĩa là gì?",
-        o: ["Đóng thuế cao hơn doanh nghiệp thường", "Mua cổ phiếu khống chế công ty mẹ → chi phối công ty con, cháu dây chuyền", "Cử người vào quốc hội bầu cử", "Ký hợp đồng thuê mặt bằng dài hạn"],
-        a: 1,
+        options: [
+            "Ký hợp đồng thuê mặt bằng dài hạn",
+            "Đóng thuế cao hơn doanh nghiệp thường",
+            "Cử người vào quốc hội bầu cử",
+            "Mua cổ phiếu khống chế công ty mẹ → chi phối công ty con, cháu dây chuyền"
+        ],
+        correct: "Mua cổ phiếu khống chế công ty mẹ → chi phối công ty con, cháu dây chuyền",
         explain: "Chế độ tham dự: bằng một lượng vốn nhỏ mua cổ phiếu khống chế 'công ty mẹ'; công ty mẹ khống chế 'công ty con'; công ty con khống chế 'công ty cháu'... Một lượng vốn nhỏ điều khiển vốn lớn gấp nhiều lần."
     },
     {
         q: "Xuất khẩu tư bản khác xuất khẩu hàng hóa ở điểm gì?",
-        o: ["Xuất khẩu hàng thành phẩm thay vì bán đồ thô", "Xuất khẩu vốn (tiền/tài sản) để đầu tư kiếm giá trị thặng dư ở nước ngoài", "Bán sản phẩm kèm bảo hành quốc tế", "Chuyển giao công nghệ miễn phí"],
-        a: 1,
-        explain: "Xuất khẩu tư bản = xuất khẩu giá trị ra nước ngoài (đầu tư tư bản) nhằm thu giá trị thặng dư ở nước nhập khẩu – nơi có lao động, nguyên liệu rẻ. Khác hẳn xuất khẩu hàng hóa thông thường."
+        options: [
+            "Chuyển giao công nghệ miễn phí",
+            "Bán sản phẩm kèm bảo hành quốc tế",
+            "Xuất khẩu hàng thành phẩm thay vì bán đồ thô",
+            "Xuất khẩu vốn (tiền/tài sản) để đầu tư kiếm giá trị thặng dư ở nước ngoài"
+        ],
+        correct: "Xuất khẩu vốn (tiền/tài sản) để đầu tư kiếm giá trị thặng dư ở nước ngoài",
+        explain: "Xuất khẩu tư bản = xuất khẩu giá trị ra nước ngoài (đầu tư tư bản) nhằm thu giá trị thặng dư ở nước nhập khẩu – nơi có lao động, nguyên liệu rẻ."
     },
     {
         q: "Hai hình thức xuất khẩu tư bản chính là gì?",
-        o: ["Nhập khẩu và tái xuất khẩu", "Đầu tư trực tiếp (FDI) và đầu tư gián tiếp (cho vay, mua chứng khoán)", "Viện trợ nhân đạo và viện trợ quân sự", "Xuất khẩu nông sản và công nghiệp"],
-        a: 1,
-        explain: "Đầu tư trực tiếp: xây xí nghiệp, mua doanh nghiệp nước ngoài để kinh doanh. Đầu tư gián tiếp: cho vay, mua cổ phiếu, trái phiếu – không trực tiếp quản lý."
+        options: [
+            "Viện trợ nhân đạo và viện trợ quân sự",
+            "Nhập khẩu và tái xuất khẩu",
+            "Xuất khẩu nông sản và công nghiệp",
+            "Đầu tư trực tiếp (FDI) và đầu tư gián tiếp (cho vay, mua chứng khoán)"
+        ],
+        correct: "Đầu tư trực tiếp (FDI) và đầu tư gián tiếp (cho vay, mua chứng khoán)",
+        explain: "Đầu tư trực tiếp: xây xí nghiệp, mua doanh nghiệp nước ngoài. Đầu tư gián tiếp: cho vay, mua cổ phiếu, trái phiếu – không trực tiếp quản lý."
     },
     {
         q: "Các tổ chức độc quyền chia nhau thế giới về kinh tế vì lý do nào theo Lênin?",
-        o: ["Do lòng nhân đạo muốn giúp nước nghèo", "Do quy luật: tích tụ tư bản + xuất khẩu tư bản buộc phải phân chia thị trường để kiếm lời", "Do hiệp ước chính trị quốc tế", "Do áp lực từ người tiêu dùng thế giới"],
-        a: 1,
+        options: [
+            "Do áp lực từ người tiêu dùng thế giới",
+            "Do lòng nhân đạo muốn giúp nước nghèo",
+            "Do hiệp ước chính trị quốc tế",
+            "Do quy luật: tích tụ tư bản + xuất khẩu tư bản buộc phải phân chia thị trường để kiếm lời"
+        ],
+        correct: "Do quy luật: tích tụ tư bản + xuất khẩu tư bản buộc phải phân chia thị trường để kiếm lời",
         explain: "Lênin: 'Bọn tư sản chia nhau thế giới, không phải do tính độc ác đặc biệt, mà do sự tập trung đã tới mức buộc chúng phải đi vào con đường ấy để kiếm lời.' (t.27, tr.472)"
     },
     {
         q: "Phân chia lãnh thổ thế giới giữa các cường quốc TBCN dẫn đến hệ quả nghiêm trọng nào?",
-        o: ["Thúc đẩy hoà bình thế giới", "Gây ra các cuộc chiến tranh, thậm chí chiến tranh thế giới", "Làm giảm nghèo tại các nước thuộc địa", "Bình đẳng hóa quan hệ kinh tế quốc tế"],
-        a: 1,
-        explain: "Sự phân chia lãnh thổ không đều và phát triển không đều của các cường quốc tất yếu dẫn đến đấu tranh đòi chia lại lãnh thổ – nguyên nhân chính của các cuộc chiến tranh thế giới."
+        options: [
+            "Bình đẳng hóa quan hệ kinh tế quốc tế",
+            "Làm giảm nghèo tại các nước thuộc địa",
+            "Thúc đẩy hoà bình thế giới",
+            "Gây ra các cuộc chiến tranh, thậm chí chiến tranh thế giới"
+        ],
+        correct: "Gây ra các cuộc chiến tranh, thậm chí chiến tranh thế giới",
+        explain: "Sự phân chia lãnh thổ không đều và phát triển không đều tất yếu dẫn đến đấu tranh đòi chia lại lãnh thổ – nguyên nhân chính của các cuộc chiến tranh thế giới."
     },
     {
         q: "Consortium (Côngxoócxiom) là hình thức tổ chức độc quyền như thế nào?",
-        o: ["Chỉ gồm các xí nghiệp trong một ngành hẹp", "Liên kết đa ngành, quy mô lớn, lệ thuộc tài chính vào một nhóm tư bản kếch xù", "Thỏa thuận giá cả giống Cartel nhưng phạm vi rộng hơn", "Hình thức độc quyền nhỏ nhất, manh nha"],
-        a: 1,
-        explain: "Consortium: có cả syndicate, trust thuộc các ngành khác nhau nhưng liên quan kinh tế-kỹ thuật, liên kết dọc, có thể hàng trăm xí nghiệp hoàn toàn phụ thuộc tài chính vào một nhóm tư bản."
+        options: [
+            "Thỏa thuận giá cả giống Cartel nhưng phạm vi rộng hơn",
+            "Hình thức độc quyền nhỏ nhất, manh nha",
+            "Chỉ gồm các xí nghiệp trong một ngành hẹp",
+            "Liên kết đa ngành, quy mô lớn, lệ thuộc tài chính vào một nhóm tư bản kếch xù"
+        ],
+        correct: "Liên kết đa ngành, quy mô lớn, lệ thuộc tài chính vào một nhóm tư bản kếch xù",
+        explain: "Consortium: có cả syndicate, trust thuộc các ngành khác nhau nhưng liên quan kinh tế-kỹ thuật, liên kết dọc, hàng trăm xí nghiệp phụ thuộc tài chính vào một nhóm tư bản."
     },
     {
         q: "Độc quyền nhà nước TBCN là gì?",
-        o: ["Nhà nước nắm toàn bộ kinh tế như CNXH", "Kiểu độc quyền nhà nước nắm vị thế ĐQ ở lĩnh vực then chốt, cộng sinh với ĐQ tư nhân", "Chính sách quốc hữu hóa toàn bộ doanh nghiệp", "Tập trung quyền lực vào một đảng chính trị"],
-        a: 1,
-        explain: "Độc quyền nhà nước TB: hình thành trên cơ sở cộng sinh giữa độc quyền tư nhân và sức mạnh kinh tế nhà nước, do giai cấp tư sản độc quyền chi phối – nhằm duy trì ổn định chế độ TBCN."
+        options: [
+            "Tập trung quyền lực vào một đảng chính trị",
+            "Chính sách quốc hữu hóa toàn bộ doanh nghiệp",
+            "Nhà nước nắm toàn bộ kinh tế như CNXH",
+            "Kiểu độc quyền nhà nước nắm vị thế ĐQ ở lĩnh vực then chốt, cộng sinh với ĐQ tư nhân"
+        ],
+        correct: "Kiểu độc quyền nhà nước nắm vị thế ĐQ ở lĩnh vực then chốt, cộng sinh với ĐQ tư nhân",
+        explain: "Độc quyền nhà nước TB: hình thành trên cơ sở cộng sinh giữa độc quyền tư nhân và sức mạnh kinh tế nhà nước, do giai cấp tư sản độc quyền chi phối."
     },
     {
         q: "Đặc trưng 'kết hợp nhân sự' của độc quyền nhà nước biểu hiện ra sao?",
-        o: ["Nhà nước tuyển dụng công nhân từ nghiệp đoàn", "Đại diện tổ chức ĐQ vào bộ máy NN và quan chức NN vào ban quản trị ĐQ – 'hôm nay bộ trưởng, ngày mai chủ ngân hàng'", "Doanh nghiệp NN thuê CEO từ nước ngoài", "Đảng chính trị nắm toàn bộ doanh nghiệp nhà nước"],
-        a: 1,
+        options: [
+            "Doanh nghiệp NN thuê CEO từ nước ngoài",
+            "Đảng chính trị nắm toàn bộ doanh nghiệp nhà nước",
+            "Đại diện tổ chức ĐQ vào bộ máy NN và quan chức NN vào ban quản trị ĐQ – 'hôm nay bộ trưởng, ngày mai chủ ngân hàng'",
+            "Nhà nước tuyển dụng công nhân từ nghiệp đoàn"
+        ],
+        correct: "Đại diện tổ chức ĐQ vào bộ máy NN và quan chức NN vào ban quản trị ĐQ – 'hôm nay bộ trưởng, ngày mai chủ ngân hàng'",
         explain: "Sự kết hợp nhân sự thực hiện qua các đảng phái: đại biểu ĐQ tham gia bộ máy NN; quan chức NN vào ban quản trị ĐQ. Các hội chủ xí nghiệp trở thành 'chính phủ đằng sau chính phủ'."
     },
     {
         q: "Sở hữu nhà nước trong độc quyền TBCN thực chất là sở hữu của ai?",
-        o: ["Toàn thể nhân dân lao động", "Tập thể giai cấp tư sản, phục vụ lợi ích tư bản độc quyền", "Nhà nước trung lập, phục vụ lợi ích công", "Giai cấp công nhân thông qua công đoàn"],
-        a: 1,
+        options: [
+            "Nhà nước trung lập, phục vụ lợi ích công",
+            "Giai cấp công nhân thông qua công đoàn",
+            "Toàn thể nhân dân lao động",
+            "Tập thể giai cấp tư sản, phục vụ lợi ích tư bản độc quyền"
+        ],
+        correct: "Tập thể giai cấp tư sản, phục vụ lợi ích tư bản độc quyền",
         explain: "Sở hữu trong ĐQ NN là sở hữu tập thể của giai cấp tư sản, thực chất phục vụ và ủng hộ lợi ích tư bản độc quyền, không phải tài sản của toàn dân như trong CNXH."
     },
     {
         q: "Nhà nước tư sản dùng các công cụ nào để điều tiết kinh tế trong ĐQ nhà nước?",
-        o: ["Chỉ dùng bạo lực quân sự và cảnh sát", "Ngân sách, thuế, hệ thống tiền tệ-tín dụng, DNNN, kế hoạch hóa, pháp luật", "Chỉ dùng chính sách lãi suất ngân hàng", "Phân phối bình quân thu nhập quốc dân"],
-        a: 1,
+        options: [
+            "Phân phối bình quân thu nhập quốc dân",
+            "Chỉ dùng chính sách lãi suất ngân hàng",
+            "Chỉ dùng bạo lực quân sự và cảnh sát",
+            "Ngân sách, thuế, hệ thống tiền tệ-tín dụng, DNNN, kế hoạch hóa, pháp luật"
+        ],
+        correct: "Ngân sách, thuế, hệ thống tiền tệ-tín dụng, DNNN, kế hoạch hóa, pháp luật",
         explain: "Hệ thống điều tiết của nhà nước TB: ngân sách, thuế, tiền tệ-tín dụng, DNNN, kế hoạch/chương trình hóa, công cụ hành chính-pháp lý – kết hợp ưu đãi và trừng phạt."
     },
     {
         q: "Lợi nhuận độc quyền cao hơn lợi nhuận bình quân do đâu?",
-        o: ["Do doanh nghiệp ĐQ làm việc siêng hơn", "Từ bóc lột CN trong ĐQ + CN ngoài ĐQ + TB vừa nhỏ thua lỗ + nhân dân lao động thuộc địa", "Do ĐQ nhận trợ cấp đặc biệt từ chính phủ", "Do giảm chi phí sản xuất nhờ tự động hóa"],
-        a: 1,
-        explain: "Nguồn lợi nhuận ĐQ cao: LĐ CN trong ĐQ + LĐ không công CN ngoài ĐQ + GT thặng dư của TB vừa nhỏ bị tước đoạt khi thua lỗ + LĐ thặng dư nhân dân thuộc địa/phụ thuộc."
+        options: [
+            "Do giảm chi phí sản xuất nhờ tự động hóa",
+            "Do ĐQ nhận trợ cấp đặc biệt từ chính phủ",
+            "Do doanh nghiệp ĐQ làm việc siêng hơn",
+            "Từ bóc lột CN trong ĐQ + CN ngoài ĐQ + TB vừa nhỏ thua lỗ + nhân dân lao động thuộc địa"
+        ],
+        correct: "Từ bóc lột CN trong ĐQ + CN ngoài ĐQ + TB vừa nhỏ thua lỗ + nhân dân lao động thuộc địa",
+        explain: "Nguồn lợi nhuận ĐQ cao: LĐ CN trong ĐQ + LĐ không công CN ngoài ĐQ + GT thặng dư của TB vừa nhỏ bị tước đoạt khi thua lỗ + LĐ thặng dư nhân dân thuộc địa."
     },
     {
         q: "Sau khi ĐQ ra đời, cạnh tranh giữa các tổ chức ĐQ có đặc điểm gì?",
-        o: ["Biến mất hoàn toàn, chỉ còn hợp tác", "Vẫn tồn tại nhưng mang tính chất tàn khốc, hủy diệt hơn cạnh tranh thời TBCN tự do", "Trở nên lành mạnh, tuân thủ luật pháp hơn", "Chỉ còn là cạnh tranh giá cả đơn thuần"],
-        a: 1,
-        explain: "Độc quyền không thủ tiêu cạnh tranh. Cạnh tranh trong giai đoạn ĐQ diễn ra giữa các tập đoàn khổng lồ có sức mạnh vật chất hùng hậu + sự ủng hộ nhà nước → còn tàn khốc, phức tạp và nguy hiểm hơn."
+        options: [
+            "Chỉ còn là cạnh tranh giá cả đơn thuần",
+            "Trở nên lành mạnh, tuân thủ luật pháp hơn",
+            "Biến mất hoàn toàn, chỉ còn hợp tác",
+            "Vẫn tồn tại nhưng mang tính chất tàn khốc, hủy diệt hơn cạnh tranh thời TBCN tự do"
+        ],
+        correct: "Vẫn tồn tại nhưng mang tính chất tàn khốc, hủy diệt hơn cạnh tranh thời TBCN tự do",
+        explain: "Độc quyền không thủ tiêu cạnh tranh. Cạnh tranh trong giai đoạn ĐQ còn tàn khốc, phức tạp và nguy hiểm hơn do sức mạnh vật chất hùng hậu + sự ủng hộ nhà nước."
     },
     {
         q: "Grab mua lại Uber ĐNA là minh chứng cho quy luật nào trong lý luận Lênin?",
-        o: ["Xuất khẩu tư bản sang nước kém phát triển", "Tự do cạnh tranh → tập trung sản xuất → hình thành độc quyền", "Phân chia lãnh thổ thế giới giữa cường quốc", "Sở hữu nhà nước thay thế tư nhân"],
-        a: 1,
-        explain: "Cuộc chiến đốt tiền Grab–Uber là biểu hiện của cạnh tranh khốc liệt. Kết quả: Grab thâu tóm Uber (tập trung tư bản/sản xuất) → nắm vị thế độc quyền, áp đặt giá cả độc quyền."
+        options: [
+            "Sở hữu nhà nước thay thế tư nhân",
+            "Phân chia lãnh thổ thế giới giữa cường quốc",
+            "Xuất khẩu tư bản sang nước kém phát triển",
+            "Tự do cạnh tranh → tập trung sản xuất → hình thành độc quyền"
+        ],
+        correct: "Tự do cạnh tranh → tập trung sản xuất → hình thành độc quyền",
+        explain: "Cuộc chiến đốt tiền Grab–Uber là biểu hiện của cạnh tranh khốc liệt. Kết quả: Grab thâu tóm Uber (tập trung tư bản) → nắm vị thế độc quyền, áp đặt giá cả độc quyền."
     },
     {
         q: "Cơ chế điều tiết kinh tế của ĐQ nhà nước là sự dung hợp của những cơ chế nào?",
-        o: ["Kế hoạch hóa tập trung + phân phối bình quân", "Thị trường + độc quyền tư nhân + điều tiết nhà nước", "Chỉ thị hành chính + thuế + trợ cấp", "Dân chủ kinh tế + kiểm soát xã hội"],
-        a: 1,
-        explain: "Cơ chế ĐQ nhà nước: dung hợp 3 cơ chế – thị trường, ĐQ tư nhân, điều tiết nhà nước – nhằm phát huy mặt tích cực và hạn chế mặt tiêu cực của từng cơ chế, phục vụ lợi ích TBCN độc quyền."
+        options: [
+            "Kế hoạch hóa tập trung + phân phối bình quân",
+            "Dân chủ kinh tế + kiểm soát xã hội",
+            "Chỉ thị hành chính + thuế + trợ cấp",
+            "Thị trường + độc quyền tư nhân + điều tiết nhà nước"
+        ],
+        correct: "Thị trường + độc quyền tư nhân + điều tiết nhà nước",
+        explain: "Cơ chế ĐQ nhà nước: dung hợp 3 cơ chế – thị trường, ĐQ tư nhân, điều tiết nhà nước – nhằm phát huy mặt tích cực và hạn chế mặt tiêu cực của từng cơ chế."
     },
     {
         q: "Từ những năm 50 TK XX, sau khi hệ thống thuộc địa tan rã, CNTB chuyển sang hình thức bóc lột nào?",
-        o: ["Từ bỏ hoàn toàn chủ nghĩa thực dân", "Chủ nghĩa thực dân mới: viện trợ kinh tế, kỹ thuật, quân sự để duy trì lệ thuộc", "Chỉ còn quan hệ thương mại bình đẳng", "Hợp tác phát triển ODA hoàn toàn miễn phí"],
-        a: 1,
-        explain: "Phong trào giải phóng dân tộc làm sụp đổ hệ thống thuộc địa kiểu cũ, nhưng CNTB chuyển sang 'chủ nghĩa thực dân mới': dùng viện trợ KT-KT-QS để duy trì sự lệ thuộc của các nước đang phát triển."
+        options: [
+            "Hợp tác phát triển ODA hoàn toàn miễn phí",
+            "Từ bỏ hoàn toàn chủ nghĩa thực dân",
+            "Chỉ còn quan hệ thương mại bình đẳng",
+            "Chủ nghĩa thực dân mới: viện trợ kinh tế, kỹ thuật, quân sự để duy trì lệ thuộc"
+        ],
+        correct: "Chủ nghĩa thực dân mới: viện trợ kinh tế, kỹ thuật, quân sự để duy trì lệ thuộc",
+        explain: "Phong trào giải phóng dân tộc làm sụp đổ hệ thống thuộc địa kiểu cũ, nhưng CNTB chuyển sang 'chủ nghĩa thực dân mới': dùng viện trợ KT-KT-QS để duy trì sự lệ thuộc."
     }
 ];
 
-let g1curr = 0, g1score = 0, g1answered = false;
+let g1Queue = [], g1curr = 0, g1score = 0, g1answered = false;
 
 function initG1() {
     document.getElementById('g1-intro').style.display = 'block';
     document.getElementById('g1-play').style.display = 'none';
     document.getElementById('g1-result').style.display = 'none';
-    g1curr = 0; g1score = 0;
 }
 
 function startG1() {
+    g1score = 0; g1curr = 0;
+    // Xáo trộn thứ tự câu hỏi
+    g1Queue = shuffle(qBank);
     document.getElementById('g1-intro').style.display = 'none';
     document.getElementById('g1-play').style.display = 'block';
     loadQ1();
@@ -673,43 +995,46 @@ function startG1() {
 
 function loadQ1() {
     g1answered = false;
-    const item = qData[g1curr];
+    const raw = g1Queue[g1curr];
+
+    // Xáo trộn các lựa chọn, ghi nhớ vị trí đúng theo nội dung
+    const shuffledOpts = shuffle(raw.options);
+    const correctIdx = shuffledOpts.indexOf(raw.correct);
+
     document.getElementById('g1-curr').innerText = g1curr + 1;
     document.getElementById('g1-score').innerText = g1score;
-    document.getElementById('g1-prog').style.width = ((g1curr / 20) * 100) + '%';
-    document.getElementById('g1-qtext').innerText = item.q;
-    document.getElementById('g1-feedback').className = 'feedback-box';
-    document.getElementById('g1-feedback').innerText = '';
+    document.getElementById('g1-prog').style.width = (g1curr / 20 * 100) + '%';
+    document.getElementById('g1-qtext').innerText = raw.q;
+    document.getElementById('g1-fb').className = 'feedback';
     document.getElementById('g1-next').className = 'btn-next';
 
-    const letters = ['A','B','C','D'];
-    const box = document.getElementById('g1-options');
+    const letters = ['A', 'B', 'C', 'D'];
+    const box = document.getElementById('g1-opts');
     box.innerHTML = '';
-    item.o.forEach((txt, i) => {
+    shuffledOpts.forEach((txt, i) => {
         const btn = document.createElement('button');
         btn.className = 'opt-btn';
-        btn.innerHTML = `<span class="opt-letter">${letters[i]}</span> ${txt}`;
-        btn.onclick = () => checkQ1(btn, i, item.a, item.explain);
+        btn.innerHTML = `<span class="opt-key">${letters[i]}</span>${txt}`;
+        btn.onclick = () => checkQ1(btn, i, correctIdx, raw.explain, box);
         box.appendChild(btn);
     });
 }
 
-function checkQ1(btn, sel, correct, explain) {
+function checkQ1(btn, sel, correct, explain, box) {
     if (g1answered) return;
     g1answered = true;
-    const btns = document.querySelectorAll('#g1-options .opt-btn');
-    btns.forEach(b => b.disabled = true);
-    const fb = document.getElementById('g1-feedback');
+    box.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+    const fb = document.getElementById('g1-fb');
     if (sel === correct) {
         btn.classList.add('correct');
         g1score++;
         document.getElementById('g1-score').innerText = g1score;
-        fb.className = 'feedback-box ok show';
+        fb.className = 'feedback ok show';
         fb.innerHTML = '✔ Chính xác! ' + explain;
     } else {
         btn.classList.add('wrong');
-        btns[correct].classList.add('correct');
-        fb.className = 'feedback-box no show';
+        box.querySelectorAll('.opt-btn')[correct].classList.add('correct');
+        fb.className = 'feedback no show';
         fb.innerHTML = '✘ Chưa đúng. ' + explain;
     }
     document.getElementById('g1-next').className = 'btn-next show';
@@ -723,20 +1048,37 @@ function nextQ1() {
 
 function finishG1() {
     document.getElementById('g1-play').style.display = 'none';
-    const r = document.getElementById('g1-result');
-    r.style.display = 'block';
+    document.getElementById('g1-result').style.display = 'block';
     document.getElementById('g1-final').innerText = g1score;
+
+    // Donut animation
+    const pct = Math.round((g1score / 20) * 100);
+    document.getElementById('g1-donut').style.setProperty('--pct', pct + '%');
+
     const grade = document.getElementById('g1-grade');
     const msg = document.getElementById('g1-msg');
-    if (g1score >= 18) { grade.style.cssText='background:#D1FAE5;color:#047857;'; grade.innerText='Xuất sắc 🏆'; msg.innerText='Bạn nắm vững hoàn toàn lý luận Lênin về độc quyền!'; }
-    else if (g1score >= 15) { grade.style.cssText='background:#EDE9FE;color:#6D28D9;'; grade.innerText='Giỏi 🌟'; msg.innerText='Kết quả rất tốt! Ôn lại một vài điểm nhỏ là hoàn hảo.'; }
-    else if (g1score >= 12) { grade.style.cssText='background:#FEF3C7;color:#B45309;'; grade.innerText='Khá 👍'; msg.innerText='Khá tốt! Hãy xem lại infographic và làm lại nhé.'; }
-    else { grade.style.cssText='background:#FEE2E2;color:#B91C1C;'; grade.innerText='Cần ôn thêm 📚'; msg.innerText='Hãy đọc lại phần infographic và thử lại!'; }
+    if (g1score >= 18) {
+        grade.style.cssText = 'background:#EBFBEE;color:#087F5B;';
+        grade.innerText = '🏆 Xuất sắc';
+        msg.innerText = 'Bạn nắm vững hoàn toàn lý luận Lênin về độc quyền!';
+    } else if (g1score >= 15) {
+        grade.style.cssText = 'background:#F3F0FF;color:#6D28D9;';
+        grade.innerText = '🌟 Giỏi';
+        msg.innerText = 'Kết quả rất tốt! Ôn lại một vài điểm nhỏ là hoàn hảo.';
+    } else if (g1score >= 12) {
+        grade.style.cssText = 'background:#FFF9DB;color:#B37D00;';
+        grade.innerText = '👍 Khá';
+        msg.innerText = 'Khá tốt! Hãy xem lại infographic và làm lại nhé.';
+    } else {
+        grade.style.cssText = 'background:#FFF5F5;color:#C92A2A;';
+        grade.innerText = '📚 Cần ôn thêm';
+        msg.innerText = 'Hãy đọc lại phần infographic và thử lại!';
+    }
 }
 
-/* =========================================================
-   GAME 2 – MATCHING (7 cặp)
-========================================================= */
+/* ══════════════════════════════════════════════
+   GAME 2 — MATCHING (7 cặp)
+══════════════════════════════════════════════ */
 const pairs = [
     { t: "Cartel", d: "Thỏa thuận giá cả, sản lượng – vẫn độc lập cả sản xuất lẫn lưu thông" },
     { t: "Syndicate", d: "Thống nhất đầu mối mua–bán, mất tự do thương mại" },
@@ -750,45 +1092,43 @@ const pairs = [
 let selTerm = null, selDef = null, matchedCount = 0;
 
 function initG2() {
-    const colT = document.getElementById('m-terms');
-    const colD = document.getElementById('m-defs');
-    colT.innerHTML = ''; colD.innerHTML = '';
+    document.getElementById('m-terms').innerHTML = '';
+    document.getElementById('m-defs').innerHTML = '';
     matchedCount = 0; selTerm = null; selDef = null;
     document.getElementById('m-win').style.display = 'none';
     document.getElementById('m-count').innerText = '0';
 
-    const terms = pairs.map((p, i) => ({ text: p.t, id: i, type: 't' }));
-    const defs  = pairs.map((p, i) => ({ text: p.d, id: i, type: 'd' }));
-    terms.sort(() => Math.random() - 0.5);
-    defs.sort(() => Math.random() - 0.5);
+    const terms = shuffle(pairs.map((p, i) => ({ text: p.t, id: i, type: 't' })));
+    const defs  = shuffle(pairs.map((p, i) => ({ text: p.d, id: i, type: 'd' })));
 
     terms.forEach(o => {
         const d = document.createElement('div');
-        d.className = 'match-item'; d.innerText = o.text;
+        d.className = 'mi'; d.innerText = o.text;
         d.onclick = () => selectMatch(d, o);
-        colT.appendChild(d);
+        document.getElementById('m-terms').appendChild(d);
     });
     defs.forEach(o => {
         const d = document.createElement('div');
-        d.className = 'match-item'; d.innerText = o.text;
+        d.className = 'mi'; d.innerText = o.text;
         d.onclick = () => selectMatch(d, o);
-        colD.appendChild(d);
+        document.getElementById('m-defs').appendChild(d);
     });
 }
 
 function selectMatch(el, obj) {
     if (el.classList.contains('matched')) return;
     if (obj.type === 't') {
-        document.querySelectorAll('#m-terms .match-item').forEach(e => e.classList.remove('selected'));
+        document.querySelectorAll('#m-terms .mi').forEach(e => e.classList.remove('selected'));
         el.classList.add('selected');
         selTerm = { el, id: obj.id };
     } else {
-        document.querySelectorAll('#m-defs .match-item').forEach(e => e.classList.remove('selected'));
+        document.querySelectorAll('#m-defs .mi').forEach(e => e.classList.remove('selected'));
         el.classList.add('selected');
         selDef = { el, id: obj.id };
     }
     if (selTerm && selDef) {
         const ts = selTerm, ds = selDef;
+        selTerm = null; selDef = null;
         if (ts.id === ds.id) {
             ts.el.classList.remove('selected'); ds.el.classList.remove('selected');
             ts.el.classList.add('matched'); ds.el.classList.add('matched');
@@ -796,27 +1136,26 @@ function selectMatch(el, obj) {
             document.getElementById('m-count').innerText = matchedCount;
             if (matchedCount === pairs.length) document.getElementById('m-win').style.display = 'block';
         } else {
-            ts.el.classList.add('wrong-anim'); ds.el.classList.add('wrong-anim');
+            ts.el.classList.add('shake'); ds.el.classList.add('shake');
             setTimeout(() => {
-                ts.el.classList.remove('selected', 'wrong-anim');
-                ds.el.classList.remove('selected', 'wrong-anim');
+                ts.el.classList.remove('selected', 'shake');
+                ds.el.classList.remove('selected', 'shake');
             }, 450);
         }
-        selTerm = null; selDef = null;
     }
 }
 
 initG2();
 
-/* =========================================================
-   GAME 3 – TRUE / FALSE (chính xác theo giáo trình)
-========================================================= */
-const tfData = [
+/* ══════════════════════════════════════════════
+   GAME 3 — TRUE / FALSE (xáo trộn thứ tự)
+══════════════════════════════════════════════ */
+const tfBank = [
     { t: "Tự do cạnh tranh trong TBCN tất yếu dẫn đến tập trung sản xuất và hình thành độc quyền.", a: true, explain: "Đúng – Lênin khẳng định đây là quy luật tất yếu của TBCN." },
     { t: "Tư bản tài chính là tiền của người dân đóng thuế tích lũy lại.", a: false, explain: "Sai – TB tài chính = sự hợp nhất của TB ngân hàng ĐQ + TB công nghiệp ĐQ, không phải tiền thuế dân." },
     { t: "Trong 'chế độ tham dự', đầu sỏ tài chính mua cổ phiếu khống chế 'công ty mẹ' để chi phối chuỗi công ty con, cháu.", a: true, explain: "Đúng – Đây là cơ chế đặc trưng của tài phiệt: dùng vốn nhỏ kiểm soát vốn lớn gấp nhiều lần." },
     { t: "Cartel là hình thức tổ chức ĐQ ổn định nhất vì các thành viên cam kết tuyệt đối.", a: false, explain: "Sai – Cartel là liên minh KHÔNG vững chắc. Thành viên bất lợi thường rút ra, làm cartel tan vỡ trước kỳ hạn." },
-    { t: "Xuất khẩu tư bản và xuất khẩu hàng hóa đều là hình thức bóc lột nước ngoài, nhưng xuất khẩu TB phổ biến hơn trong giai đoạn đế quốc.", a: true, explain: "Đúng – TBCN tự do: chủ yếu xuất khẩu HH. TBCN ĐQ: xuất khẩu TB trở thành phổ biến và đặc trưng." },
+    { t: "Xuất khẩu tư bản chiếm vị trí phổ biến và đặc trưng hơn trong giai đoạn đế quốc so với giai đoạn tự do cạnh tranh.", a: true, explain: "Đúng – TBCN tự do: chủ yếu xuất khẩu HH. TBCN ĐQ: xuất khẩu TB trở thành phổ biến và đặc trưng." },
     { t: "Khi ĐQ xuất hiện, cạnh tranh biến mất hoàn toàn vì chỉ còn 1 hoặc vài hãng thống trị.", a: false, explain: "Sai – ĐQ không thủ tiêu cạnh tranh. Cạnh tranh vẫn tồn tại nhưng càng tàn khốc, nguy hiểm và phức tạp hơn." },
     { t: "Sở hữu nhà nước trong ĐQ nhà nước TBCN phục vụ lợi ích tập thể của giai cấp tư sản ĐQ, không phải toàn dân.", a: true, explain: "Đúng – Sở hữu trong ĐQ NN là 'sở hữu tập thể của giai cấp tư sản' có nhiệm vụ phục vụ lợi ích TB ĐQ." },
     { t: "Sau phong trào giải phóng dân tộc thập niên 50 TK XX, CNTB đã từ bỏ hoàn toàn chủ nghĩa thực dân.", a: false, explain: "Sai – CNTB chuyển sang 'thực dân mới': viện trợ KT-KT-QS để duy trì lệ thuộc, không từ bỏ." },
@@ -824,39 +1163,46 @@ const tfData = [
     { t: "Grab thâu tóm Uber ĐNA là ví dụ minh chứng cho quy luật tập trung sản xuất dẫn đến độc quyền của Lênin.", a: true, explain: "Đúng – Cạnh tranh đốt tiền → tập trung (Grab mua Uber) → nắm ĐQ → áp đặt giá cả ĐQ. Đúng quy luật Lênin." }
 ];
 
-let g3curr = 0, g3score = 0, g3timerInt, g3answering = false;
+let g3Queue = [], g3curr = 0, g3score = 0, g3timerInt, g3answering = false;
 
 function initG3() {
     document.getElementById('g3-intro').style.display = 'block';
     document.getElementById('g3-play').style.display = 'none';
     document.getElementById('g3-result').style.display = 'none';
-    g3curr = 0; g3score = 0;
 }
 
 function startG3() {
+    g3curr = 0; g3score = 0; g3answering = false;
+    // Xáo trộn thứ tự câu hỏi T/F
+    g3Queue = shuffle(tfBank);
+
     document.getElementById('g3-intro').style.display = 'none';
     document.getElementById('g3-play').style.display = 'block';
-    document.getElementById('g3-timer').style.transition = 'none';
-    document.getElementById('g3-timer').style.width = '100%';
-    g3curr = 0; g3score = 0; g3answering = false;
-    loadTF();
-    setTimeout(() => {
-        document.getElementById('g3-timer').style.transition = 'width 30s linear';
-        document.getElementById('g3-timer').style.width = '0%';
-    }, 80);
-    let timeLeft = 30;
+
+    // Reset timer
+    const tf = document.getElementById('g3-timer');
+    tf.style.transition = 'none';
+    tf.style.width = '100%';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+        tf.style.transition = 'width 30s linear';
+        tf.style.width = '0%';
+    }));
+
     clearInterval(g3timerInt);
+    let t = 30;
     g3timerInt = setInterval(() => {
-        timeLeft--;
-        if (timeLeft <= 0) { clearInterval(g3timerInt); finishG3(); }
+        t--;
+        if (t <= 0) { clearInterval(g3timerInt); finishG3(); }
     }, 1000);
+
+    loadTF();
 }
 
 function loadTF() {
     g3answering = false;
     document.getElementById('g3-curr').innerText = g3curr + 1;
     document.getElementById('g3-score').innerText = g3score;
-    document.getElementById('g3-text').innerText = tfData[g3curr].t;
+    document.getElementById('g3-text').innerText = g3Queue[g3curr].t;
     const fb = document.getElementById('g3-fb');
     fb.className = 'tf-feedback'; fb.innerText = '';
     document.querySelectorAll('.tf-btn').forEach(b => b.disabled = false);
@@ -866,7 +1212,7 @@ function checkG3(answer) {
     if (g3answering) return;
     g3answering = true;
     document.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
-    const item = tfData[g3curr];
+    const item = g3Queue[g3curr];
     const fb = document.getElementById('g3-fb');
     if (answer === item.a) {
         g3score++;
@@ -881,20 +1227,35 @@ function checkG3(answer) {
         g3curr++;
         if (g3curr < 10) loadTF();
         else { clearInterval(g3timerInt); finishG3(); }
-    }, 1500);
+    }, 1600);
 }
 
 function finishG3() {
     document.getElementById('g3-play').style.display = 'none';
-    const r = document.getElementById('g3-result');
-    r.style.display = 'block';
+    document.getElementById('g3-result').style.display = 'block';
     document.getElementById('g3-final').innerText = g3score;
+    const pct = Math.round((g3score / 10) * 100);
+    document.getElementById('g3-donut').style.setProperty('--pct', pct + '%');
+
     const grade = document.getElementById('g3-grade');
     const msg = document.getElementById('g3-msg');
-    if (g3score >= 9) { grade.style.cssText='background:#D1FAE5;color:#047857;'; grade.innerText='Xuất sắc 🔥'; msg.innerText='Phản xạ nhanh, kiến thức chắc – bạn sẵn sàng thi rồi!'; }
-    else if (g3score >= 7) { grade.style.cssText='background:#EDE9FE;color:#6D28D9;'; grade.innerText='Tốt lắm 💡'; msg.innerText='Gần đỉnh rồi! Ôn thêm phần chưa chắc nhé.'; }
-    else if (g3score >= 5) { grade.style.cssText='background:#FEF3C7;color:#B45309;'; grade.innerText='Khá 👍'; msg.innerText='Xem lại infographic và thử lại để cải thiện!'; }
-    else { grade.style.cssText='background:#FEE2E2;color:#B91C1C;'; grade.innerText='Cần ôn thêm 📚'; msg.innerText='Đọc kỹ lại lý luận Lênin trong infographic rồi thử lại!'; }
+    if (g3score >= 9) {
+        grade.style.cssText = 'background:#EBFBEE;color:#087F5B;';
+        grade.innerText = '🔥 Xuất sắc';
+        msg.innerText = 'Phản xạ nhanh, kiến thức chắc – bạn sẵn sàng thi rồi!';
+    } else if (g3score >= 7) {
+        grade.style.cssText = 'background:#F3F0FF;color:#6D28D9;';
+        grade.innerText = '💡 Tốt lắm';
+        msg.innerText = 'Gần đỉnh rồi! Ôn thêm phần chưa chắc nhé.';
+    } else if (g3score >= 5) {
+        grade.style.cssText = 'background:#FFF9DB;color:#B37D00;';
+        grade.innerText = '👍 Khá';
+        msg.innerText = 'Xem lại infographic và thử lại để cải thiện!';
+    } else {
+        grade.style.cssText = 'background:#FFF5F5;color:#C92A2A;';
+        grade.innerText = '📚 Cần ôn thêm';
+        msg.innerText = 'Đọc kỹ lại lý luận Lênin trong infographic rồi thử lại!';
+    }
 }
 </script>
 </body>
